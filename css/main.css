@@ -1,15 +1,47 @@
-/* START: header */
+/* START of Utility */
+.bg-color-light {
+    background-color: var(--light-color);  /* hero, blog, feedback */
+}
+/* END of Utility */
 
-/* END: header */
+body {
+    background-color: var(--white-color);
+    color: var(--text-color);
+    font-size: 15px !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-color);
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1em;
+}
 
 
+/* START of Media */
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
 
-/* START: hero */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
 
-/* END: hero */
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
 
-
-
-/* START: clients logo list */
-
-/* END: clients logo list */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
