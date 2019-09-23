@@ -11,4 +11,6 @@
     --breakpoint-md: 768px;
     --breakpoint-lg: 992px;
     --breakpoint-xl: 1200px;
+
+    --header-height: 4.7rem;
 }

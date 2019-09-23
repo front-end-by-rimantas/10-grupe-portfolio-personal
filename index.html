@@ -7,19 +7,84 @@
     <title>Personal Portfolio | Philip Gilbert</title>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/icons.css">
     <link rel="stylesheet" href="./css/button.css">
 </head>
 <body>
     <header>
         <div class="container">
-            Header
+            <div class="row flex row-center">
+                <div class="col">
+                    <img src="./img/logo.png" alt="Personal portfolio logo">
+                </div>
+                <div class="col hidden-md">
+                    <nav>
+                        <ul class="flex">
+                            <li>
+                                <a class="active" href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">About</a>
+                            </li>
+                            <li>
+                                <a href="#">Services</a>
+                            </li>
+                            <li>
+                                <a href="#">Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="#">Pricing</a>
+                            </li>
+                            <li class="has-dropdown">
+                                <a class="with-dropdown" href="#">Blog</a>
+                                <!-- <ul>
+                                    <li>
+                                        <a href="#">Blog home</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Blog single</a>
+                                    </li>
+                                </ul> -->
+                            </li>
+                            <li class="has-dropdown">
+                                <a class="with-dropdown" href="#">Pages</a>
+                                <!-- <ul>
+                                    <li>
+                                        <a href="#">Elements</a>
+                                    </li>
+                                    <li class="has-dropdown2">
+                                        <a class="with-dropdown2" href="#">Level 2</a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Item one</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Item two</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul> -->
+                            </li>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col hidden">
+                    <i class="lnr lnr-menu"></i>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="hero bg-color-light">
+    <section class="hero bg-color-light mt-h">
         <div class="container">
             <div class="row flex row-center">
                 <div class="col-6">
@@ -29,7 +94,7 @@
                     some different futures.</p>
                     <a class="btn bg-gradient-blue text-uppercase" href="#">Discover now</a>
                 </div>
-                <div class="col-6 hidden-sm sm-first">
+                <div class="col-6 sm-first">
                     <img class="sm-half-size" src="./img/hero-img.png" alt="Philip Gilbert hero">
                 </div>
             </div>
@@ -89,6 +154,60 @@
             Footer
         </div>
     </footer>
+
+    <!-- <div class="mobile-overlay"></div>
+    <nav class="mobile-nav">
+        <ul>
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>
+            <li>
+                <a href="#">Portfolio</a>
+            </li>
+            <li>
+                <a href="#">Pricing</a>
+            </li>
+            <li>
+                <a class="with-list" href="#">Blog</a>
+                <ul>
+                    <li>
+                        <a href="#">Blog home</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog single</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="with-list" href="#">Pages</a>
+                <ul>
+                    <li>
+                        <a href="#">Elements</a>
+                    </li>
+                    <li>
+                        <a class="with-list" href="#">Level 2</a>
+                        <ul>
+                            <li>
+                                <a href="#">Item one</a>
+                            </li>
+                            <li>
+                                <a href="#">Item two</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </nav> -->
 
     <script src="./js/data.js"></script>
     <script src="./js/functions.js"></script>

@@ -1,0 +1,6 @@
+.lnr {
+    color: var(--dark-color);
+    font-size: 1.8rem;
+    font-weight: 900;
+    cursor: pointer;
+}

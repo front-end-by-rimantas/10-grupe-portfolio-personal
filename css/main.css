@@ -25,10 +25,15 @@
 .sm-half-size {
     max-width: 70%;
 }
+
+.mt-h {
+    margin-top: var(--header-height);
+}
+
 /* END of Utility */
 
 html {
-    font-size: 15px; // custom 1rem
+    font-size: 15px;
 }
 
 body {
@@ -67,8 +72,11 @@ img {
     height: auto;
 }
 
-.container {
+section {
+    padding-top: 2rem;
+}
 
+.container {
     margin: 0 auto;
 }
 
@@ -89,7 +97,6 @@ img {
     .container {
         max-width: 960px;
     }
-
 }
 
 @media (max-width: 900px){
@@ -103,6 +110,14 @@ img {
 @media (max-width: 768px) {
     .container {
         max-width: 720px;
+    }
+
+    .hidden-md {
+        display: none;
+    }
+
+    header .col.hidden {
+        display: block !important;
     }
 }
 /* SM */
