@@ -2,46 +2,126 @@
 .bg-color-light {
     background-color: var(--light-color);  /* hero, blog, feedback */
 }
+
+.bg-gradient-blue {
+    background: linear-gradient(0deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    /* webkit-linear-gradient(0deg,#8490ff 0%,#62bdfc 100%); */
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-center {
+    flex-direction: row;
+    align-items: center;
+}
+
+.sm-half-size {
+    max-width: 70%;
+}
 /* END of Utility */
+
+html {
+    font-size: 15px; // custom 1rem
+}
 
 body {
     background-color: var(--white-color);
     color: var(--text-color);
-    font-size: 15px !important;
+    font-size: 14px;
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--dark-color);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 4.2rem;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+}
+
+p {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .container {
-    width: 100%;
+
     margin: 0 auto;
+}
+
+.col-6 {
+    max-width: 50%;
     padding: 0 1em;
 }
 
-
 /* START of Media */
-@media (min-width: 576px) {
-    .container {
-        max-width: 540px;
-    }
-}
-
-@media (min-width: 768px) {
-    .container {
-        max-width: 720px;
-    }
-}
-
-@media (min-width: 992px) {
-    .container {
-        max-width: 960px;
-    }
-}
-
+/* XL */
 @media (min-width: 1200px) {
     .container {
         max-width: 1140px;
     }
 }
+/* LG */
+@media (max-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+}
+
+@media (max-width: 900px){
+    h1 {
+        font-size: 2rem ;
+        line-height: 2.2rem;
+    }
+}
+
+/* MD */
+@media (max-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+/* SM */
+@media (max-width: 576px) {
+    .flex {
+        flex-wrap: wrap;
+    }
+
+    .container {
+        max-width: 540px;
+    }
+
+    .col-6 {
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .sm-first {
+        order: -1;
+    }
+}
+
