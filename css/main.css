@@ -4,7 +4,7 @@
 }
 
 .bg-gradient-blue {
-    background: linear-gradient(0deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     /* webkit-linear-gradient(0deg,#8490ff 0%,#62bdfc 100%); */
 }
 
@@ -72,17 +72,14 @@ img {
     height: auto;
 }
 
-section {
-    padding-top: 2rem;
-}
-
 .container {
-    margin: 0 auto;
+    margin: 0 auto; /* */
+    padding-top: 2rem;
 }
 
 .col-6 {
     max-width: 50%;
-    padding: 0 1em;
+    padding: 0 1rem;
 }
 
 /* START of Media */
