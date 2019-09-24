@@ -7,10 +7,10 @@
     --text-color: #777777;
     --white-color: #ffffff;
 
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
+    --breakpoint-sm: 576px; /* phone */
+    --breakpoint-md: 768px; /* tablet */
+    --breakpoint-lg: 992px; /* laptop */
+    --breakpoint-xl: 1200px; /* desktop */
 
     --header-height: 4.7rem;
 }
