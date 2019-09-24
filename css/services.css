@@ -1,0 +1,33 @@
+.services {
+    padding-bottom: 5rem;
+}
+
+.services .col p {
+    max-width: 55%;
+    margin: 0 auto;
+}
+
+.services .col-4 {
+    margin-top: 4rem;
+}
+
+.service p {
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+.services .col-4 h3 {
+    margin-top: 1.5rem;
+}
+
+.service:hover h3 {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.service:hover .lnr {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    cursor: pointer;
+}
