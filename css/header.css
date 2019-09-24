@@ -6,6 +6,7 @@ header {
     left: 0px;
     right: 0px;
     height: var(--header-height);
+    z-index: 99;
 }
 
 header .col.hidden{
