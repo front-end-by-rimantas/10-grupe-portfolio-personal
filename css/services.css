@@ -2,6 +2,10 @@
     padding-bottom: 5rem;
 }
 
+.services col {
+    margin-bottom: 4rem;
+}
+
 .services .col p {
     max-width: 55%;
     margin: 0 auto;

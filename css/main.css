@@ -52,6 +52,11 @@
 
 
 /* START of elements */
+::selection {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
 html {
     font-size: 15px;
 }
