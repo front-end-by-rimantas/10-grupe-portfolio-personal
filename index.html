@@ -4,27 +4,443 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfolio</title>
+    <title>Personal Portfolio | Philip Gilbert</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <link rel="stylesheet" href="./css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/button.css">
-    <link rel="stylesheet" href="./css/form.css">
-    <link rel="stylesheet" href="./css/gallery.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/icons.css">
+    <link rel="stylesheet" href="./css/button.css">
+    <link rel="stylesheet" href="./css/services.css">
+    <link rel="stylesheet" href="./css/facts.css">
+    <link rel="stylesheet" href="./css/plans.css">
+    <link rel="stylesheet" href="./css/blog.css">
 </head>
 <body>
     <header>
-        HEADER
+        <div class="container">
+            <div class="row flex row-center">
+                <div class="col">
+                    <img src="./img/logo.png" alt="Personal portfolio logo">
+                </div>
+                <div class="col hidden-md">
+                    <nav>
+                        <ul class="flex">
+                            <li>
+                                <a class="active" href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">About</a>
+                            </li>
+                            <li>
+                                <a href="#">Services</a>
+                            </li>
+                            <li>
+                                <a href="#">Portfolio</a>
+                            </li>
+                            <li>
+                                <a href="#">Pricing</a>
+                            </li>
+                            <li class="has-dropdown">
+                                <a class="with-dropdown" href="#">Blog</a>
+                                <!-- <ul>
+                                    <li>
+                                        <a href="#">Blog home</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Blog single</a>
+                                    </li>
+                                </ul> -->
+                            </li>
+                            <li class="has-dropdown">
+                                <a class="with-dropdown" href="#">Pages</a>
+                                <!-- <ul>
+                                    <li>
+                                        <a href="#">Elements</a>
+                                    </li>
+                                    <li class="has-dropdown2">
+                                        <a class="with-dropdown2" href="#">Level 2</a>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Item one</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Item two</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul> -->
+                            </li>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col hidden">
+                    <i class="lnr lnr-menu"></i>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <div>
-        HERO
-    </div>
+    <section class="hero bg-color-light">
+        <div class="container">
+            <div class="row flex row-center">
+                <div class="col-6">
+                    <h6 class="text-uppercase">This is me</h6>
+                    <h1 class="text-uppercase">Philip Gilbert</h1>
+                    <p>You will begin to realise why this exercise is called the Dickens Pattern with reference to the ghost showing Scrooge
+                    some different futures.</p>
+                    <a class="btn bg-gradient-blue text-uppercase" href="#">Discover now</a>
+                </div>
+                <div class="col-6 sm-first sm-text-center">
+                    <img class="sm-half-size" src="./img/hero-img.png" alt="Philip Gilbert hero">
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div>
-        CLIENTS LOGO LIST
-    </div>
+    <section class="details">
+        <div class="container">
+            <div class="row flex row-center">
+                <div class="col-6">
+                    <img src="./img/about-img.png" alt="About image">
+                </div>
+                <div class="col-6">
+                    <h6 class="text-uppercase">About me</h6>
+                    <h2 class="text-uppercase">Personal details</h2>
+                    <p>Here, I focus on a range of items and features that we use in life without giving them a second thought. such as Coca Cola. Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                    <a class="btn text-uppercase bg-gradient-blue" href="#">View full details</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="services">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h2>My offered Services</h2>
+                    <p>At about this time of year, some months after New Year’s resolutions have been made and kept, or made and neglected.</p>
+                </div>
+            </div>
+            <div class="row flex text-center">
+                <div class="col-4">
+                    <div class="service">
+                        <i class="lnr lnr-pie-chart"></i>
+                        <h3>Web design</h3>
+                        <p>“It is not because things are difficult that we do not dare; it is because we do not dare that they are
+                            difficult.”</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="service">
+                        <i class="lnr lnr-laptop-phone"></i>
+                        <h3>Web development</h3>
+                        <p>If you are an entrepreneur, you know that your success cannot depend on the opinions of others. Like the wind,
+                            opinions.</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="service">
+                        <i class="lnr lnr-camera"></i>
+                        <h3>Photography</h3>
+                        <p>Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving
+                            your
+                            skills.</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="service">
+                        <i class="lnr lnr-picture"></i>
+                        <h3>Clipping Path</h3>
+                        <p>Hypnosis quit smoking methods maintain caused quite a stir in the medical world over the last two decades. There is a
+                            lot of argument.</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="service">
+                        <i class="lnr lnr-tablet"></i>
+                        <h3>Apps interface</h3>
+                        <p>Do you sometimes have the feeling that you’re running into the same obstacles over and over again? Many of my
+                            conflicts.</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="service">
+                        <i class="lnr lnr-rocket"></i>
+                        <h3>Graphic design</h3>
+                        <p>You’ve heard the expression, “Just believe it and it will come.” Well, technically, that is true, however,
+                            ‘believing’
+                            is not just thinking that.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="facts bg-gradient-blue">
+        <div class="container">
+            <div class="row flex text-center">
+                <div class="col-3">
+                    <h4>2536</h4>
+                    <p>Project Completed</p>
+                </div>
+                <div class="col-3">
+                    <h4>6784</h4>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="col-3">
+                    <h4>2239</h4>
+                    <p>Cups of Coffee</p>
+                </div>
+                <div class="col-3">
+                    <h4>434</h4>
+                    <p>Real Professionals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            Projects
+        </div>
+    </section>
+
+    <section class="feedback bg-color-light">
+        <div class="container">
+            Feedback
+        </div>
+    </section>
+
+    <section class="plans">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col">
+                    <h2>Choose Your Plan</h2>
+                    <p>When someone does something that they know that they shouldn't do, did they.</p>
+                </div>
+            </div>
+            <div class="row flex text-center">
+                <div class="col-3">
+                    <h3>01</h3>
+                    <h4>Economy</h4>
+                    <p>For the individuals</p>
+                    <p>Secure Online Transfer</p>
+                    <p>Unlimited Styles for interface</p>
+                    <p>Reliable Customer Service</p>
+                    <h6>£199.00</h6>
+                    <a class="text-uppercase" href="#">Buy now</a>
+                </div>
+                <div class="col-3">
+                    <h3>02</h3>
+                    <h4>Business</h4>
+                    <p>For the individuals</p>
+                    <p>Secure Online Transfer</p>
+                    <p>Unlimited Styles for interface</p>
+                    <p>Reliable Customer Service</p>
+                    <h6>£299.00</h6>
+                    <a class="text-uppercase" href="#">Buy now</a>
+                </div>
+                <div class="col-3">
+                    <h3>03</h3>
+                    <h4>Premium</h4>
+                    <p>For the individuals</p>
+                    <p>Secure Online Transfer</p>
+                    <p>Unlimited Styles for interface</p>
+                    <p>Reliable Customer Service</p>
+                    <h6>£399.00</h6>
+                    <a class="text-uppercase" href="#">Buy now</a>
+                </div>
+                <div class="col-3">
+                    <h3>04</h3>
+                    <h4>Exlusive</h4>
+                    <p>For the individuals</p>
+                    <p>Secure Online Transfer</p>
+                    <p>Unlimited Styles for interface</p>
+                    <p>Reliable Customer Service</p>
+                    <h6>£499.00</h6>
+                    <a class="text-uppercase" href="#">Buy now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="posts bg-color-light">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h2>Latest posts from our blog</h2>
+                    <p>You may be a skillful, effective employer but if you don’t trust your personnel and the opposite, then the
+                        chances of
+                        improving and expanding the business</p>
+                </div>
+            </div>
+
+            <div class="row flex">
+                <div class="col-4">
+                    <div class="row photo">
+                        <img src="./img/blog/1.jpg" Blog post photo">
+                    </div>
+                    <div class="row flex post-info">
+                        <div class="col flex row-center person">
+                            <img src="./img/user/user.png" alt="User photo">
+                            <a href="">Mark Wiens</a>
+                        </div>
+                        <div class="col flex row-center meta">
+                            <p>24th Sep</p>
+                            <span>
+                                <i class="lnr lnr-heart"></i>
+                                15
+                            </span>
+                            <span>
+                                <i class="lnr lnr-bubble"></i>
+                                4
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row post">
+                        <a href="#">
+                            <h4>Break through self doubt and fear</h4>
+                        </a>
+                        <p>Dream interpretation has many forms; it can be done be done for the sake of fun, hobby or can be taken up
+                            as a serious
+                            career.</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row photo">
+                        <img src="./img/blog/2.jpg" alt="Blog post photo">
+                    </div>
+                    <div class="row flex post-info">
+                        <div class="col flex row-center person">
+                            <img src="./img/user/user.png" alt="User photo">
+                            <a href="">Mark Wiens</a>
+                        </div>
+                        <div class="col flex row-center meta">
+                            <p>24th Sep</p>
+                            <span>
+                                <i class="lnr lnr-heart"></i>
+                                15
+                            </span>
+                            <span>
+                                <i class="lnr lnr-bubble"></i>
+                                4
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row post">
+                        <a href="#">
+                            <h4>Portable fashion for young women</h4>
+                        </a>
+                        <p>You may be a skillful, effective employer but if you don’t trust your personnel and the opposite, then the chances of
+                        improving.</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row photo">
+                        <img src="./img/blog/3.jpg" alt="Blog post photo">
+                    </div>
+                    <div class="row flex post-info">
+                        <div class="col flex row-center person">
+                            <img src="./img/user/user.png" alt="User photo">
+                            <a href="">Mark Wiens</a>
+                        </div>
+                        <div class="col flex row-center meta">
+                            <p>24th Sep</p>
+                            <span>
+                                <i class="lnr lnr-heart"></i>
+                                15
+                            </span>
+                            <span>
+                                <i class="lnr lnr-bubble"></i>
+                                4
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row post">
+                        <a href="#">
+                            <h4>Do dreams serve as a premonition</h4>
+                        </a>
+                        <p>So many of us are demotivated to achieve anything. Such people are not enthusiastic about anything. They don’t want to
+                        work involved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="brands">
+        <div class="container">
+            Brands
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            Footer
+        </div>
+    </footer>
+
+    <!-- <div class="mobile-overlay"></div>
+    <nav class="mobile-nav">
+        <ul>
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>
+            <li>
+                <a href="#">Portfolio</a>
+            </li>
+            <li>
+                <a href="#">Pricing</a>
+            </li>
+            <li>
+                <a class="with-list" href="#">Blog</a>
+                <ul>
+                    <li>
+                        <a href="#">Blog home</a>
+                    </li>
+                    <li>
+                        <a href="#">Blog single</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="with-list" href="#">Pages</a>
+                <ul>
+                    <li>
+                        <a href="#">Elements</a>
+                    </li>
+                    <li>
+                        <a class="with-list" href="#">Level 2</a>
+                        <ul>
+                            <li>
+                                <a href="#">Item one</a>
+                            </li>
+                            <li>
+                                <a href="#">Item two</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </nav> -->
 
     <script src="./js/data.js"></script>
     <script src="./js/functions.js"></script>
