@@ -9,7 +9,7 @@
 }
 
 .plans .col-3:hover {
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    background: var(--gradient);
     transform: scale(1.05);
     transition: all .4s ease 0s;
     cursor: pointer;
