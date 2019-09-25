@@ -6,11 +6,6 @@
     margin-bottom: 4rem;
 }
 
-.services .col p {
-    max-width: 55%;
-    margin: 0 auto;
-}
-
 .services .col-4 {
     margin-top: 4rem;
 }
@@ -34,4 +29,11 @@
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+    .services .col p {
+        max-width: 55%;
+        margin: 0 auto;
+    }
 }

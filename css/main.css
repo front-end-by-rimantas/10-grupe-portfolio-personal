@@ -21,6 +21,10 @@
     justify-content: space-between;
 }
 
+.space-around {
+    justify-content: space-around;
+}
+
 .row-center {
     flex-direction: row;
     align-items: center;
