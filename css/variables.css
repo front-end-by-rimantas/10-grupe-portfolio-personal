@@ -2,8 +2,10 @@
     --primary-color: #8490ff;
     --secondary-color: #62bdfc;
     --light-color: #f9f9ff;
+    --light-secondary: #eeeeee;
     --light-dark-color: #212529;
     --dark-color: #222222;
+    --dark-secondary: #333333;
     --text-color: #777777;
     --white-color: #ffffff;
     --light-secondary: #eeeeee;
@@ -14,4 +16,5 @@
     --breakpoint-xl: 1200px; /* desktop */
 
     --header-height: 4.7rem;
+    --gradient: linear-gradient(to right, var(--primary-color), var(--secondary-color));
 }

@@ -2,9 +2,8 @@
     padding-bottom: 5rem;
 }
 
-.services .col p {
-    max-width: 55%;
-    margin: 0 auto;
+.services col {
+    margin-bottom: 4rem;
 }
 
 .services .col-4 {
@@ -26,8 +25,15 @@
 }
 
 .service:hover .lnr {
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    background: var(--gradient);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+    .services .col p {
+        max-width: 55%;
+        margin: 0 auto;
+    }
 }
