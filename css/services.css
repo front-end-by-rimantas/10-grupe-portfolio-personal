@@ -25,7 +25,7 @@
 }
 
 .service:hover .lnr {
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    background: var(--gradient);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     cursor: pointer;
