@@ -1,79 +1,53 @@
-.plans {
-    padding: 8rem 0;
-}
-
-.plans .flex {
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
 .plans .col {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 4.7rem;
-}
-
-.plans ::selection {
-    background-color: #8490ff;
-    color: white;
+    margin-bottom: 4rem;
 }
 
 .plans .col-3 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    text-align: center;
+    background-color: var(--light-color);
     padding: 2rem 1rem;
     margin-bottom: 2rem;
-    background-color: var(--light-color);
 }
 
 .plans .col-3:hover {
-    transition: all .4s ease 0s;
-    transform: scale(1.05);
-    cursor: pointer;
     background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    z-index: 2;
+    transform: scale(1.05);
+    transition: all .4s ease 0s;
+    cursor: pointer;
 }
 
 .plans h3 {
-    width: 140px;
-    height: 140px;
+    background-color: rgba(132,144,255,.1);
+    border: 2rem solid rgba(132,144,255,.1);
+    border-radius: 50%;
     font-size: 2.4rem;
     line-height: 2.6rem;
     font-weight: 300;
+    width: 140px;
+    height: 140px;
     padding: 1.4rem;
-    background-color: rgba(132,144,255,.1);
-    border: 2rem solid rgba(132,144,255,.1);
-    border-radius: 100px;
+    margin: 0 auto;
 }
 
 .plans h4 {
     font-size: 1.2rem;
     line-height: 1.4rem;
     font-weight: 600;
-    margin-top: 0.5rem;
-    margin-bottom: 0;
+    margin: 1.5rem 0;
 }
 
 .plans .col-3 p:first-of-type {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     border: none;
 }
 
 .plans .col-3 p {
-    width: 100%;
     margin: 0 auto;
     padding: 10px 0;
-    border-top: 1px solid #7772;
+    border-top: 1px solid var(--light-secondary);
 }
 
 .plans .col-3 p:last-of-type {
-    border-bottom: 1px solid #7772;
+    border-bottom: 1px solid var(--light-secondary);
     margin-bottom: 2rem;
 }
 
@@ -84,18 +58,17 @@
 }
 
 .plans a {
-    width: 100%;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--dark-color);
-    text-decoration: none;
     background-color: var(--white-color);
-    padding: 13px 0;
+    color: var(--dark-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 1rem;
     display: none;
 }
 
-.plans .col-3:hover h3, 
-.plans .col-3:hover h4, 
+.plans .col-3:hover h3,
+.plans .col-3:hover h4,
 .plans .col-3:hover p {
     color: var(--white-color);
 }
@@ -111,7 +84,7 @@
 
 .plans .col-3:hover a {
     display: block;
-} 
+}
 
 .plans .col-3:hover h3 {
     border-color: rgba(255,255,255,.21);
@@ -119,18 +92,17 @@
 }
 
 @media (max-width: 992px) {
-    .plans {
-        padding: 0 3rem;
-    }
     .plans .col-3 {
         width: 50%;
     }
+
+    .plans {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 }
 
-@media (max-width: 768px) {
-    .plans {
-        padding: 0 5rem;
-    }
+@media (max-width: 576px) {
     .plans .col-3 {
         width: 100%;
     }

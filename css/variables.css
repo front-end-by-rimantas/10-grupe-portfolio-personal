@@ -6,6 +6,7 @@
     --dark-color: #222222;
     --text-color: #777777;
     --white-color: #ffffff;
+    --light-secondary: #eeeeee;
 
     --breakpoint-sm: 576px; /* phone */
     --breakpoint-md: 768px; /* tablet */
