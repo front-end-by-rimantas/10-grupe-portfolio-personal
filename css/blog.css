@@ -1,5 +1,5 @@
 .posts {
-    padding-bottom: 5rem;
+    padding-bottom: 4rem;
 }
 
 .posts > .container > .row > .col {
@@ -55,7 +55,7 @@
 }
 
 .post {
-    margin-top: 2rem;
+    margin: 1rem 0 2rem 0;
 }
 
 .post h4 {

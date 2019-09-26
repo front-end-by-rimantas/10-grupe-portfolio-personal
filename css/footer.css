@@ -1,0 +1,63 @@
+footer {
+    padding: 5rem 0 4rem;
+    background-color: var(--dark-primary-color);
+}
+
+footer .col {
+    max-width: 33%;
+    padding: 0 1.5rem;
+}
+
+footer h3 {
+    color: var(--white-color);
+}
+
+.fa-heart-o {
+    font-size: initial;
+}
+
+.colorib {
+    color: var(--primary-color);
+}
+
+.input-item {
+    position: relative;
+    overflow: hidden;
+}
+
+footer input {
+    width: 100%;
+    padding: 10px;
+}
+
+footer .lnr-arrow-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    background-color: var(--primary-color);
+}
+
+footer a {
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.icons a {
+    margin-right: 5px;
+}
+
+.icons a:hover {
+    color: var(--primary-color);
+}
+
+/*** MD ***/
+@media (max-width: 768px) {
+    footer {
+        padding: 3rem 0;
+    }
+    footer .col {
+        padding: 1.5rem 2rem;
+        min-width: 100%;
+    }
+}
