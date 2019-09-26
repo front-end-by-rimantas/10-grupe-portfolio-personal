@@ -133,3 +133,9 @@ nav.mobile-nav li li {
 nav.mobile-nav a:hover {
     color: var(--primary-color);
 }
+
+@media (max-width: 992px) {
+    nav > ul > li a {
+        margin-right: 1.2rem;
+    }
+}

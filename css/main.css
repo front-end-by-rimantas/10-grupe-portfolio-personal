@@ -139,6 +139,10 @@ section {
         font-size: 2rem;
         line-height: 2.2rem;
     }
+
+    .col p {
+        padding: 0 2rem;
+    }
 }
 
 /*** MD ***/
@@ -153,6 +157,10 @@ section {
 
     header .col.hidden {
         display: block !important;
+    }
+
+    .col p {
+        padding: 0 1rem;
     }
 
     .col-4 {

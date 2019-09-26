@@ -5,11 +5,11 @@
     --light-secondary: #eeeeee;
     --light-dark-color: #212529;
     --dark-color: #222222;
+    --dark-primary-color: #04091e;
     --dark-secondary: #333333;
     --text-color: #777777;
     --white-color: #ffffff;
-    --footer-bg-color: #04091e;
-  
+
     --breakpoint-sm: 576px; /* phone */
     --breakpoint-md: 768px; /* tablet */
     --breakpoint-lg: 992px; /* laptop */
