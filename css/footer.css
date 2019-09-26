@@ -1,6 +1,6 @@
 footer {
     padding: 5rem 0 4rem;
-    background-color: var(--footer-bg-color);
+    background-color: var(--dark-primary-color);
 }
 
 footer .col {
