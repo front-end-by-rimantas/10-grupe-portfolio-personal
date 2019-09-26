@@ -1,0 +1,71 @@
+.feedbacks > .container > .row > .col {
+    margin-bottom: 4rem;
+}
+
+.flex.feed {
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.flex.feed > .row {
+    padding: 1rem;
+}
+
+.feedbacks {
+    padding-bottom: 7rem;
+}
+
+.feeds {
+    position: relative;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.feeds .col-6 {
+    background-color: var(--white-color);
+    cursor: pointer;
+    margin: 0 0.5rem;
+}
+
+.feedbacks h4 {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.feedbacks .col-6:hover h4 {
+    color: var(--primary-color);
+    transition: all .4s ease 0s;
+}
+
+.feedback-btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-34%, 130%);
+    box-shadow: -14px 7px 20px 0 rgba(157,157,157,.2);
+    cursor: pointer;
+    display: flex;
+}
+
+.feedback-btn .lnr:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    transition: all .4s ease 0s;
+}
+
+.feedbacks .lnr {
+    font-size: 1rem;
+    line-height: 1.2rem;
+    padding: 0.8rem;
+    margin: 2px;
+    background-color: var(--white-color);
+}
+
+@media (max-width: 576px) {
+    .feeds .col-6:nth-child(n+2) {
+        display: none;
+    }
+}
