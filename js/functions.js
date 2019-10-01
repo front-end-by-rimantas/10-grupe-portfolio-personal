@@ -78,7 +78,7 @@ function navigationFunctionality() {
 
     liHasDropdown.forEach( ( item ) => {
         item.addEventListener('click', ( event ) => {
-            let child = event.toElement.nextElementSibling;
+            let child = item.querySelector('ul');
 
             if( child !== null) {
                 child.classList.toggle('visible');
