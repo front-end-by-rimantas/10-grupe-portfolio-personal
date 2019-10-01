@@ -105,23 +105,62 @@ const services = [
 
 const facts = [
     {
-        number: 2536,
-        title: 'Project Completed',
-        skaitliukas: 0
+        number:         2536,
+        title:          'Project Completed',
+        skaitliukas:    0,
     },
     {
-        number: 6784,
-        title: 'Happy Clients',
-        skaitliukas: 0
+        number:         6784,
+        title:          'Happy Clients',
+        skaitliukas:    0,
     },
     {
-        number: 2239,
-        title: 'Cups of Coffee',
-        skaitliukas: 0
+        number:         2239,
+        title:          'Cups of Coffee',
+        skaitliukas:    0,
     },
     {
-        number: 434,
-        title: 'Real Professionals',
-        skaitliukas: 0
+        number:         434,
+        title:          'Real Professionals',
+        skaitliukas:    0,
     }
+];
+
+const blog_posts = [
+    {
+        imgPhoto:   '2.jpg',
+        imgUser:    'gv.jpg',
+        user:       'Giedrius V.',
+        date:       '1st Oct',
+        time:       '2019-10-01',
+        link:       '#',
+        likes:      9,
+        comments:   0,
+        title:      'Break through self doubt and fear',
+        text:       'Dream interpretation has many forms; it can be done be done for the sake of fun, hobby or can be taken up as a serious career.',
+    },
+    {
+        imgPhoto:   '3.jpg',
+        imgUser:    'user.png',
+        user:       'Mark Wiens',
+        date:       '24th Sep',
+        time:       '2019-09-24',
+        link:       '#',
+        likes:      15,
+        comments:   4,
+        title:      'Portable fashion for women',
+        text:       'You may be a skillful, effective employer but if you don’t trust your personnel and the opposite, then the chances of improving.',
+    },
+    {
+        imgPhoto:   '1.jpg',
+        imgUser:    'am.jpg',
+        user:       'Artūras M.',
+        date:       '2nd Sep',
+        time:       '2019-09-02',
+        link:       '#',
+        likes:      11,
+        comments:   7,
+        title:      'Practice makes perfect',
+        text:       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dolore similique quam quidem eos deleniti at aperiam minima aut?',
+    },
 ];
