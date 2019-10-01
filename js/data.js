@@ -101,5 +101,27 @@ const services = [
         icon:       'rocket',
         text:       'You’ve heard the expression, “Just believe it and it will come.” Well, technically, that is true, however, ‘believing’ is not just thinking that.'
     },
+];
 
+const facts = [
+    {
+        number: 2536,
+        title: 'Project Completed',
+        skaitliukas: 0
+    },
+    {
+        number: 6784,
+        title: 'Happy Clients',
+        skaitliukas: 0
+    },
+    {
+        number: 2239,
+        title: 'Cups of Coffee',
+        skaitliukas: 0
+    },
+    {
+        number: 434,
+        title: 'Real Professionals',
+        skaitliukas: 0
+    }
 ];
