@@ -1,3 +1,23 @@
+function renderServices(data) {
+    let HTML = '';
+
+    for (let i = 0; i < data.length; i++) {
+        let service = data[i];
+
+        HTML += `
+            <div class="col-4">
+                <div class="service">
+                    <i class="lnr lnr-${service.icon}"></i>
+                    <h3>${service.category}</h3>
+                    <p>${service.text}</p>
+                </div>
+            </div>
+        `;
+    }
+
+    return document.querySelector('.services .row.flex').innerHTML = HTML;
+}
+
 function renderNavigation ( data, target ) {
     let LINKS = '';
 
