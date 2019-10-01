@@ -209,3 +209,26 @@ function counterUp(data) {
 
     setInterval(count, duration / step);
 }
+
+function renderPlans(data) {
+    let HTML = '';
+
+    for (let i = 0; i < data.length; i++){
+        let plan = data[i];
+
+        let options = '';
+        for(let j = 0; j < plan.options.length; j++){
+            options += `<p>${plan.options[j]}</p>`;
+        }
+
+        HTML += `<div class="col-3">
+                    <h3>${plan.num}</h3>
+                    <h4>${plan.name}</h4>
+                    <p>${plan.dedicated}</p>
+                    ${options}
+                    <h6>${plan.cost}</h6>
+                    <a class="text-uppercase" href="#">${plan.button}</a>
+                </div>`;
+    }
+    return document.querySelector('.plans .row.flex.text-center').innerHTML = HTML;
+}

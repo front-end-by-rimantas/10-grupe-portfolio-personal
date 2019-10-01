@@ -7,6 +7,7 @@ renderServices ( services );
 
 renderFacts(facts);
 counterUp( facts );
+renderPlans(plans);
 
 var t1 = performance.now();
 console.log("" + (t1 - t0) + "ms");

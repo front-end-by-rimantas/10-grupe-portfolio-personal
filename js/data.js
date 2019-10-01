@@ -125,3 +125,46 @@ const facts = [
         skaitliukas: 0
     }
 ];
+
+const plans = [
+    {
+        num: '01',
+        name: 'Economy',
+        dedicated: 'For the individuals',
+        options: ['Secure Online Transfer',
+                  'Unlimited Styles for interface',
+                  'Reliable Customer Service'],
+        cost: '£199.00',
+        button: 'Buy now'
+    },
+    {
+        num: '02',
+        name: 'Business',
+        dedicated: 'For the individuals',
+        options: ['Secure Online Transfer',
+                  'Unlimited Styles for interface',
+                  'Reliable Customer Service'],
+        cost: '£199.00',
+        button: 'Buy now'
+    },
+    {
+        num: '03',
+        name: 'Premium',
+        dedicated: 'For the individuals',
+        options: ['Secure Online Transfer',
+                  'Unlimited Styles for interface',
+                  'Reliable Customer Service'],
+        cost: '£199.00',
+        button: 'Buy now'
+    },
+    {
+        num: '04',
+        name: 'Exlusive',
+        dedicated: 'For the individuals',
+        options: ['Secure Online Transfer',
+                  'Unlimited Styles for interface',
+                  'Reliable Customer Service'],
+        cost: '£199.00',
+        button: 'Buy now'
+    }
+];
