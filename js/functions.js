@@ -1,4 +1,4 @@
-function renderServices(data) {
+function renderServices( data ) {
     let HTML = '';
 
     for (let i = 0; i < data.length; i++) {
@@ -231,4 +231,47 @@ function renderPlans(data) {
                 </div>`;
     }
     return document.querySelector('.plans .row.flex.text-center').innerHTML = HTML;
+}
+
+function renderBlog( data ) {
+    let HTML = '';
+
+    for (let i = 0; i < data.length; i++) {
+        let post = data[i];
+
+        HTML += `
+            <div class="col-4">
+                <div class="row photo">
+                    <img src="./img/blog/${post.imgPhoto}" alt="Blog post photo">
+                </div>
+                <div class="row flex post-info">
+                    <div class="col flex row-center person">
+                        <img src="./img/user/${post.imgUser}" alt="User photo">
+                        <a href="#">${post.user}</a>
+                    </div>
+                    <div class="col flex row-center meta">
+                        <p>
+                            <time datetime="${post.time}">${post.date}</time>
+                        </p>
+                        <span>
+                            <i class="lnr lnr-heart"></i>
+                            ${post.likes}
+                        </span>
+                        <span>
+                            <i class="lnr lnr-bubble"></i>
+                            ${post.comments}
+                        </span>
+                    </div>
+                </div>
+                <div class="row post">
+                    <a href="${post.link}">
+                        <h4>${post.title}</h4>
+                    </a>
+                    <p>${post.text}</p>
+                </div>
+            </div>
+        `;
+    }
+
+    return document.querySelector('.posts .row.flex').innerHTML = HTML;
 }
