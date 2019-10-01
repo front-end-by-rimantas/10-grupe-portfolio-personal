@@ -21,7 +21,7 @@ function renderFacts(data) {
 
 function counterUp(data) {
     let elements = document.querySelectorAll('.counter'),
-        duration = 4000,
+        duration = 2000,
         step = 100,
         factSection = document.querySelector('#facts');
     let count = function() {
