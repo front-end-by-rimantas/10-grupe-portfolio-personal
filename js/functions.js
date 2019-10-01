@@ -21,16 +21,19 @@ function renderFacts(data) {
 
 function counterUp(data) {
     let elements = document.querySelectorAll('.counter'),
-        duration = 3000,
-        step = 100;
+        duration = 4000,
+        step = 100,
+        factSection = document.querySelector('#facts');
     let count = function() {
-        for (let i = 0; i < elements.length; i++){
-            elements[i].textContent = `${data[i].skaitliukas}`;
-            let grow = data[i].number > step ? Math.floor(data[i].number / step) : Math.floor(-data[i].number / step);
-            data[i].skaitliukas += grow;
-            if (data[i].skaitliukas >= data[i].number) {
-                data[i].skaitliukas = data[i].number;
-                clearInterval(this);
+        if (window.scrollY + window.innerHeight > factSection.offsetTop){
+            for (let i = 0; i < elements.length; i++){
+                elements[i].textContent = `${data[i].skaitliukas}`;
+                let grow = data[i].number > step ? Math.floor(data[i].number / step) : Math.floor(-data[i].number / step);
+                data[i].skaitliukas += grow;
+                if (data[i].skaitliukas > data[i].number) {
+                    data[i].skaitliukas = data[i].number;
+                    clearInterval(this);
+                }
             }
         }
     }; 
