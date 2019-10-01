@@ -126,6 +126,49 @@ const facts = [
     }
 ];
 
+const plans = [
+    {
+        num: '01',
+        name: 'Economy',
+        dedicated: 'For the individuals',
+        options: ['Secure Online Transfer',
+                  'Unlimited Styles for interface',
+                  'Reliable Customer Service'],
+        cost: '£199.00',
+        button: 'Buy now'
+    },
+    {
+        num: '02',
+        name: 'Business',
+        dedicated: 'For the individuals',
+        options: ['Secure Online Transfer',
+                  'Unlimited Styles for interface',
+                  'Reliable Customer Service'],
+        cost: '£199.00',
+        button: 'Buy now'
+    },
+    {
+        num: '03',
+        name: 'Premium',
+        dedicated: 'For the individuals',
+        options: ['Secure Online Transfer',
+                  'Unlimited Styles for interface',
+                  'Reliable Customer Service'],
+        cost: '£199.00',
+        button: 'Buy now'
+    },
+    {
+        num: '04',
+        name: 'Exlusive',
+        dedicated: 'For the individuals',
+        options: ['Secure Online Transfer',
+                  'Unlimited Styles for interface',
+                  'Reliable Customer Service'],
+        cost: '£199.00',
+        button: 'Buy now'
+    }
+];
+
 const blog_posts = [
     {
         imgPhoto:   '2.jpg',
@@ -162,5 +205,5 @@ const blog_posts = [
         comments:   7,
         title:      'Practice makes perfect',
         text:       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dolore similique quam quidem eos deleniti at aperiam minima aut?',
-    },
+    }
 ];
