@@ -52,6 +52,14 @@
     width: 25%;
     padding: 0 1rem;
 }
+
+.visible {
+    display: block !important;
+}
+
+.hidden {
+    display: none !important;
+}
 /* END of Utility */
 
 
@@ -63,6 +71,7 @@
 
 html {
     font-size: 15px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -155,7 +164,7 @@ section {
         display: none;
     }
 
-    header .col.hidden {
+    .hidden {
         display: block !important;
     }
 
