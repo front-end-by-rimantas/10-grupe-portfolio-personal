@@ -10,6 +10,10 @@ renderServices ( services );
 renderFacts( facts );
 counterUp( facts );
 
+renderProjects( projects );
+filterGallery();
+zoomProject();
+
 renderBlog( blog_posts );
 
 /* ^^^^^^^^^^^^^^^^^^^^^ */
