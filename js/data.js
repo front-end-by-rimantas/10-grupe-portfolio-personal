@@ -126,6 +126,45 @@ const facts = [
     }
 ];
 
+const projects = [
+    {
+        img:        'p1.jpg',
+        title:      '2D vinyl design',
+        text:       'vector',
+        category:   'vector',
+    },
+    {
+        img:        'p2.jpg',
+        title:      '2D vinyl design',
+        text:       'vector',
+        category:   'raster',
+    },
+    {
+        img:        'p3.jpg',
+        title:      'Creative Poster Design',
+        text:       'Agency',
+        category:   'ui/ux',
+    },
+    {
+        img:        'p4.jpg',
+        title:      'Embosed Logo Design',
+        text:       'Portal',
+        category:   'printing',
+    },
+    {
+        img:        'p5.jpg',
+        title:      '3D Helmet Design',
+        text:       'vector',
+        category:   'vector',
+    },
+    {
+        img:        'p6.jpg',
+        title:      '2D vinyl design',
+        text:       'raster',
+        category:   'raster',
+    },
+];
+
 const plans = [
     {
         num: '01',

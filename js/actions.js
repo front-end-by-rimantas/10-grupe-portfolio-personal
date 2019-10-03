@@ -11,6 +11,10 @@ renderFacts( facts );
 counterUp( facts );
 renderPlans(plans);
 
+renderProjects( projects );
+filterGallery();
+zoomProject();
+
 renderBlog( blog_posts );
 
 /* ^^^^^^^^^^^^^^^^^^^^^ */
