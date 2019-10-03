@@ -9,6 +9,7 @@ renderServices ( services );
 
 renderFacts( facts );
 counterUp( facts );
+renderPlans(plans);
 
 renderProjects( projects );
 filterGallery();
