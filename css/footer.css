@@ -1,5 +1,5 @@
 footer {
-    padding: 5rem 0 4rem;
+    padding: 4rem 0;
     background-color: var(--dark-primary-color);
 }
 
@@ -54,10 +54,11 @@ footer a {
 /*** MD ***/
 @media (max-width: 768px) {
     footer {
-        padding: 3rem 0;
+        padding: 2rem;
     }
+
     footer .col {
-        padding: 1.5rem 2rem;
+        padding: 1.5rem 0;
         min-width: 100%;
     }
 }

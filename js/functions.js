@@ -18,11 +18,11 @@ function renderServices( data ) {
     return document.querySelector('.services .row.flex').innerHTML = HTML;
 }
 
-function renderNavigation ( data, target ) {
+function renderNavigation ( target ) {
     let LINKS = '';
 
-    for (let i = 0; i < data.length; i++) {
-        let d       = data[i];
+    for (let i = 0; i < navigation_links.length; i++) {
+        let d       = navigation_links[i];
         let aClass  = d.hasOwnProperty('aClass')
                     ? `class="${d.aClass}" `
                     : '';
@@ -105,13 +105,13 @@ function navigationFunctionality() {
         document.querySelector('.mobile-nav').classList.toggle('visible');
     });
 
-    var liHasDropdown = document.querySelectorAll('nav > ul li.has-dropdown');
+    var liHasDropdown = document.querySelectorAll('nav > ul > li.has-dropdown');
 
-    liHasDropdown.forEach( ( item ) => {
-        item.addEventListener('click', ( event ) => {
-            let child = item.querySelector('ul');
+    liHasDropdown.forEach((item) => {
+        item.addEventListener('click', (event) => {
+            let child = event.toElement.nextElementSibling;
 
-            if( child !== null) {
+            if (child !== null) {
                 child.classList.toggle('visible');
             }
         });
@@ -425,4 +425,124 @@ function renderBlog( data ) {
     }
 
     return document.querySelector('.posts .row.flex').innerHTML = HTML;
+}
+
+function countInRow(params) {
+    if (window.matchMedia("(min-width: 1200px)").matches)   showInRow = 5;
+    if (window.matchMedia("(max-width: 992px)").matches)    showInRow = 4;
+    if (window.matchMedia("(max-width: 768px)").matches)    showInRow = 3;
+    if (window.matchMedia("(max-width: 576px)").matches)    showInRow = 2;
+}
+
+function renderBrands() {
+    BRANDS  = '';
+    HTML    = '';
+
+    countInRow();
+    window.addEventListener('resize', renderBrands);
+
+    let brandsCount = brands.length;
+        showInRow = (showInRow > brandsCount) ? brandsCount : showInRow;
+        showWidth = 100 / showInRow;
+        position = showInRow + 1;
+    let data        = [
+        ...brands.slice(brands.length - showInRow),
+        ...brands,
+        ...brands.slice(0, showInRow),
+    ];
+        count       = data.length;
+    let colWidth    = 100 / count;
+    let middle      = Math.round(data.length / 2)-showInRow;
+    let showMiddle  = middle - showInRow * showWidth;
+    let rowWidth    = count / showInRow * 100;
+
+    data.forEach( ( item, index ) => {
+        BRANDS += `
+            <div class="col" data-index="${index}" style="flex-basis: ${colWidth}%">
+                <a href="${item.link}"><img src="./img/brands/${item.img}" alt="Brand logo"></a>
+            </div>
+        `;
+    });
+
+    HTML = `
+        <div class="row flex" style="width: ${rowWidth}%;margin-left: ${showMiddle}%">
+            ${BRANDS}
+        </div>
+    `;
+
+    return document.querySelector('.brands > .container').innerHTML = HTML;
+}
+
+/* not working. coding in progress */
+function dragBrands() {
+    let row = document.querySelector('.brands > .container > .row');
+    // row.addEventListener('drag', () => {
+    //     console.log('mousedown');
+    //     row.addEventListener('mouseover', dragBrands, true);
+    // });
+
+
+    // row.addEventListener('mouseup', () => {
+    //     console.log('mouseUP');
+    //     row.removeEventListener('mouseover', dragBrands, true);
+    // });
+
+    // console.log(event.clientX);
+    // // document.querySelector('.brands img').draggable = false;
+    // if (event.offsetX <= xxx) {
+    //     // console.log('draging to right' + xxx);
+    //     // row.style.marginLeft = (ml + (1)) + '%';
+    // }
+    // if (event.offsetX >= xxx) {
+    //     // console.log('draggin to left' + xxx);
+    //     // let ml = parseInt(row.style.marginLeft);
+    //     // row.style.marginLeft = (ml + (-1)) + '%';
+    // }
+
+    /*if (typeof lastX !== 'undefined') {
+        var diff = lastX - event.clientX;
+        let ml = parseFloat(row.style.marginLeft);
+
+        if (diff > 0) {
+            row.style.marginLeft = ml - diff/11 + '%';
+        }
+        if (diff < 0) {
+            row.style.marginLeft = ml - diff/11 + '%';
+        }
+
+    } else console.log('undifineeeeeeed');*/
+
+    lastX = event.clientX;
+}
+
+function brandsFunctionality() {
+    setTimeout(function moveBrand() {
+        timer = setInterval(moveBrands, time / step);
+
+        setTimeout(() => {
+            clearInterval(timer);
+            setTimeout(moveBrand, setAfter);
+        }, time);
+    }, setAfter);
+}
+
+function moveBrands() {
+    let row = document.querySelector('.brands > .container > .row');
+    let ml = parseFloat(row.style.marginLeft);
+
+    if (position > count - showInRow) {
+        row.style.marginLeft = 0 + '%';
+        position = 0;
+        i = step;
+    }
+
+    if (i < step) {
+        row.style.marginLeft = ml - (showWidth / step) + '%';
+        i++;
+    } else {
+        position++;
+        i = 0;
+        clearInterval(timer);
+        // row.style.marginLeft = Math.round(parseFloat(row.style.marginLeft).toFixed(3))+'%';
+    }
 }
