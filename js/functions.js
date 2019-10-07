@@ -210,6 +210,90 @@ function counterUp(data) {
     setInterval(count, duration / step);
 }
 
+function renderFeedback(data) {
+    // clone feedbacks [1, 2, 3, 4]
+    // add 1 in front
+    // add 1 in back
+    data = [  data[data.length-1], ...data, data[0] ];
+
+    // first original feedback element
+    let firstOriginalFeedback = 1;
+    
+    let HTML = '';
+    for (let i = 0; i < data.length; i++){
+        let feed = data[i];
+        
+        HTML += `<div class="col-6 flex feed" 
+                      data-index="${i}" 
+                      style="flex-basis: ${100 / data.length}%;">
+                    <div class="row">
+                        <div class="col">
+                            <img src="./img/user/${feed.clientImg}" alt="User photo">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>${feed.clientComment}</p>
+                            <h4>${feed.clientName}</h4>
+                            <p>${feed.clientPosition}</p>
+                        </div>
+                    </div>
+                </div>`;
+    }
+
+    let FEEDS = `<div class="row flex row-center feeds" 
+                      style="width: ${100 * (data.length / 2)}%;
+                      margin-left: -${(firstOriginalFeedback * 100) / 2}%">
+                    ${HTML}
+                </div>`;
+ 
+    return document.querySelector('.testimonial').innerHTML = FEEDS;
+}
+
+function changeFeed() {
+    let arrows = document.querySelectorAll('.feedback-btn .lnr');
+    const list = document.querySelector('.feeds');
+    let currentFeedbackIndex = parseInt(list.style.marginLeft) / -50;
+    const length = document.querySelectorAll('.feed').length; 
+    const duration = 1000;
+    const steps = 100;   
+    // let directionIndex = 1;
+    
+    arrows.forEach((arrow) => {
+        arrow.addEventListener('click', () => {
+            const direction = arrow.dataset.direction;
+            
+            if (direction === 'left') {
+                // directionIndex = 1;
+                currentFeedbackIndex--;
+                if (currentFeedbackIndex === 0){
+                    currentFeedbackIndex = length - 2;
+                } 
+            }
+            if (direction === 'right') {
+                // directionIndex = -1;
+                currentFeedbackIndex++;
+                if (currentFeedbackIndex === length - 1){
+                    currentFeedbackIndex = 1;
+                } 
+            }
+
+            list.style.marginLeft = -currentFeedbackIndex * 50 +'%';
+            
+            // let step = 0;
+            // const timer = setInterval(() => {
+            //     if (step <= steps) {
+            //         list.style.marginLeft = - ( currentFeedbackIndex - directionIndex / steps * step ) * 50 +'%';
+            //         step++;
+            //     } else {
+            //         clearInterval(timer);
+            //     }
+            // }, duration / steps);
+        })
+    });
+            
+}
+
 function renderPlans(data) {
     let HTML = '';
 

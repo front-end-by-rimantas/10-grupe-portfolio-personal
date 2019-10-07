@@ -126,6 +126,33 @@ const facts = [
     }
 ];
 
+const feedbacks = [
+    {
+        clientImg: 'user1.png',
+        clientName: 'Harriet Maxwell',
+        clientPosition: 'CEO at Google',
+        clientComment: 'Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.'
+    },
+    {
+        clientImg: 'user2.png',
+        clientName: 'Carolyn Craig',
+        clientPosition: 'CEO at Facebook',
+        clientComment: 'A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.'
+    },
+    {
+        clientImg: 'user1.png',
+        clientName: 'Vardenis Pavardenis',
+        clientPosition: 'CEO at Vardenis',
+        clientComment: 'A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.'
+    },
+    {
+        clientImg: 'user2.png',
+        clientName: 'Pavardenis Vardenis',
+        clientPosition: 'CEO at Pavardenis',
+        clientComment: 'A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.'
+    }
+];
+
 const plans = [
     {
         num: '01',
