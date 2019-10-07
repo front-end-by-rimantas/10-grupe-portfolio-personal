@@ -1,3 +1,13 @@
+let showInRow = 3;
+let showWidth;
+let count;
+let timer;
+let position    = 0;
+let i           = 0;
+const time      = 500;
+const setAfter  = 5 * time;
+const step      = 50;
+
 const navigation_links = [
     {
         title:  'home',
@@ -167,44 +177,52 @@ const projects = [
 
 const plans = [
     {
-        num: '01',
-        name: 'Economy',
-        dedicated: 'For the individuals',
-        options: ['Secure Online Transfer',
-                  'Unlimited Styles for interface',
-                  'Reliable Customer Service'],
-        cost: '£199.00',
-        button: 'Buy now'
+        num:            '01',
+        name:           'Economy',
+        dedicated:      'For the individuals',
+        options:         [
+            'Secure Online Transfer',
+            'Unlimited Styles for interface',
+            'Reliable Customer Service'
+        ],
+        cost:           '£199.00',
+        button:         'Buy now',
     },
     {
-        num: '02',
-        name: 'Business',
-        dedicated: 'For the individuals',
-        options: ['Secure Online Transfer',
-                  'Unlimited Styles for interface',
-                  'Reliable Customer Service'],
-        cost: '£199.00',
-        button: 'Buy now'
+        num:            '02',
+        name:           'Business',
+        dedicated:      'For the individuals',
+        options:            [
+            'Secure Online Transfer',
+            'Unlimited Styles for interface',
+            'Reliable Customer Service'
+        ],
+        cost:           '£199.00',
+        button:         'Buy now',
     },
     {
-        num: '03',
-        name: 'Premium',
-        dedicated: 'For the individuals',
-        options: ['Secure Online Transfer',
-                  'Unlimited Styles for interface',
-                  'Reliable Customer Service'],
-        cost: '£199.00',
-        button: 'Buy now'
+        num:            '03',
+        name:           'Premium',
+        dedicated:          'For the individuals',
+        options:        [
+            'Secure Online Transfer',
+            'Unlimited Styles for interface',
+            'Reliable Customer Service'
+        ],
+        cost:           '£199.00',
+        button:         'Buy now',
     },
     {
-        num: '04',
-        name: 'Exlusive',
-        dedicated: 'For the individuals',
-        options: ['Secure Online Transfer',
-                  'Unlimited Styles for interface',
-                  'Reliable Customer Service'],
-        cost: '£199.00',
-        button: 'Buy now'
+        num:            '04',
+        name:           'Exlusive',
+        dedicated:      'For the individuals',
+        options:        [
+            'Secure Online Transfer',
+            'Unlimited Styles for interface',
+            'Reliable Customer Service'
+        ],
+        cost:           '£199.00',
+        button:         'Buy now',
     }
 ];
 
@@ -245,4 +263,27 @@ const blog_posts = [
         title:      'Practice makes perfect',
         text:       'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dolore similique quam quidem eos deleniti at aperiam minima aut?',
     }
+];
+
+const brands = [
+    {
+        img:    '1.png',
+        link:   '#',
+    },
+    {
+        img:    '2.png',
+        link:   '#',
+    },
+    {
+        img:     '3.png',
+        link:    '#',
+    },
+    {
+        img:     '4.png',
+        link:   '#',
+    },
+    {
+        img:     '5.png',
+        link:    '#',
+    },
 ];
