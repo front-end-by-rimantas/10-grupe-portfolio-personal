@@ -9,8 +9,9 @@ header {
     z-index: 1;
 }
 
-header .col.hidden{
-    display: none;
+.shadow {
+    box-shadow: -21.213px 21.213px 30px 0 rgba(158,158,158,.3);
+    transition: box-shadow 1s;
 }
 
 nav ul {
@@ -45,12 +46,22 @@ a.with-dropdown {
     padding-right: 1rem;
 }
 
-.with-dropdown2::after {
-    content: "\f105";
+.mobile-nav a.with-dropdown {
+    position: unset;
+}
+
+.mobile-nav a.with-dropdown::after,
+.mobile-nav > ul > li.has-dropdown > ul > li > a.with-dropdown::after {
+    content: "\f107";
     position: absolute;
-    right: 0;
     font-family: FontAwesome;
     font-weight: 400;
+    font-size: 1rem;
+    right: 0;
+}
+
+
+.mobile-nav > ul > li.has-dropdown > ul > li > a.with-dropdown::after {
     padding-right: 1rem;
 }
 
@@ -65,30 +76,44 @@ li.has-dropdown ul {
     top: 51px;
     left: -8rem;
     right: 0;
-    display: flex;
     flex-direction: column;
     box-shadow: 0 0 30px rgba(127,137,161,.25);
+    display: none;
 }
 
-li.has-dropdown2 ul {
-    background-color: var(--white-color);
-    padding: 1rem 1.5rem;
+ul.flex > li.has-dropdown > ul li.has-dropdown > ul {
     position: absolute;
-    top: 51px;
-    left: -14rem;
-    right: 100%;
-    display: flex;
-    flex-direction: column;
+    top: 0;
+    left: -1.5rem;
+    transform: translateX(-100%);
     box-shadow: 0 0 30px rgba(127,137,161,.25);
+
+}
+
+ul > li.has-dropdown > ul > li.has-dropdown > a {
+    position: unset;
+}
+
+ul > li.has-dropdown > ul > li.has-dropdown > .with-dropdown::after {
+    content: "\f105";
+    right: 0;
+    font-family: FontAwesome;
+    font-weight: 400;
+    padding-right: 0rem;
 }
 
 li.has-dropdown ul > li > a {
     text-transform: capitalize;
 }
 
+.mobile-overlay, nav.mobile-nav {
+    display: none;
+    z-index: 2;
+}
+
 .mobile-overlay {
     background-color: rgba(0, 0, 0, .7);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
@@ -97,7 +122,7 @@ li.has-dropdown ul > li > a {
 
 nav.mobile-nav {
     background-color: rgba(0, 0, 0, .8);
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -114,28 +139,90 @@ nav.mobile-nav a {
 
 nav.mobile-nav li {
     padding: 0.5rem 0 0.5rem 1rem;
+    height: 100%;
 }
 
 nav.mobile-nav li li {
     padding-left: 2rem;
 }
 
-.with-list::after {
-    content: "\f107";
-    position: absolute;
-    font-family: FontAwesome;
-    font-weight: 400;
-    font-size: 1rem;
-    right: 0;
-    padding-right: 1rem;
-}
-
 nav.mobile-nav a:hover {
     color: var(--primary-color);
 }
 
+.lnr-menu, .lnr-cross {
+    z-index: 9;
+    position: fixed;
+    top: 28px;
+    right: 18px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+nav.mobile-nav > ul > li.has-dropdown ul {
+    background-color: unset;
+    position: unset;
+    box-shadow: none;
+    padding: 0;
+}
+
+.mobile-nav.visible {
+    animation: slide .5s ease-out;
+    animation-iteration-count: 1;
+}
+
+nav > ul.flex ul {
+    animation: show .7s ease-out;
+    animation-iteration-count: 1;
+}
+
+nav.mobile-nav ul.visible li {
+    animation: appear .3s linear;
+    animation-iteration-count: 1;
+}
+
+
 @media (max-width: 992px) {
     nav > ul > li a {
         margin-right: 1.2rem;
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    90% {
+        opacity: .9;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide {
+    0% {
+        left: -300px;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        padding: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
