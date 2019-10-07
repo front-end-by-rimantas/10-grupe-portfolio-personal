@@ -1,8 +1,8 @@
 var t0 = performance.now();
 /* ^^^^^^^^^^^^^^^^^^^^^ */
 
-renderNavigation( navigation_links, 'nav' );
-renderNavigation( navigation_links, '.mobile-nav' );
+renderNavigation('nav' );
+renderNavigation('.mobile-nav' );
 navigationFunctionality();
 
 renderServices ( services );
@@ -13,8 +13,14 @@ renderFeedback(feedbacks);
 changeFeed();
 renderPlans(plans);
 
+renderProjects( projects );
+filterGallery();
+zoomProject();
+
 renderBlog( blog_posts );
 
+renderBrands();
+brandsFunctionality();
 /* ^^^^^^^^^^^^^^^^^^^^^ */
 var t1 = performance.now();
 console.log("" + (t1 - t0) + "ms");

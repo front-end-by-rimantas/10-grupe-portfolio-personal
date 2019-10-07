@@ -65,7 +65,7 @@
     text-transform: uppercase;
 }
 
-.posts .col-4:hover img {
+.posts .col-4:hover .photo img {
     transform: scale(1.05);
     transition: all .4s ease 0s;
     cursor: pointer;
@@ -90,5 +90,8 @@
         max-width: 100%;
         margin-bottom: 5rem;
         padding: 0 1rem;
+    }
+    .posts > .container > .row > .col > p {
+        max-width: 100%;
     }
 }

@@ -35,7 +35,7 @@
 }
 
 .container {
-    margin: 0 auto; /* */
+    margin: 0 auto;
 }
 
 .col-6 {
@@ -127,7 +127,15 @@ img {
 }
 
 section {
-    padding-top: 5rem;
+    padding: 5rem 0;
+}
+
+section:nth-of-type(2) {
+    padding-bottom: 0;
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
 /* END of elements */
 
@@ -168,7 +176,7 @@ section {
         display: block !important;
     }
 
-    .col p {
+    section .col p {
         padding: 0 1rem;
     }
 
@@ -180,6 +188,7 @@ section {
         width: 50%;
     }
 }
+
 /*** SM ***/
 @media (max-width: 576px) {
     .container {
@@ -212,4 +221,3 @@ section {
         max-width: 70%;
     }
 }
-

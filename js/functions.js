@@ -18,11 +18,11 @@ function renderServices( data ) {
     return document.querySelector('.services .row.flex').innerHTML = HTML;
 }
 
-function renderNavigation ( data, target ) {
+function renderNavigation ( target ) {
     let LINKS = '';
 
-    for (let i = 0; i < data.length; i++) {
-        let d       = data[i];
+    for (let i = 0; i < navigation_links.length; i++) {
+        let d       = navigation_links[i];
         let aClass  = d.hasOwnProperty('aClass')
                     ? `class="${d.aClass}" `
                     : '';
@@ -86,6 +86,17 @@ function addChild ( array ) {
 }
 
 function navigationFunctionality() {
+    document.addEventListener('scroll', ( ) => {
+        let element = document.querySelector('header').classList;
+        if (window.scrollY > 100) {
+            element.add('shadow');
+        }
+
+        if (window.scrollY < 100) {
+            element.remove('shadow');
+        }
+    })
+
     document.querySelector('.lnr-menu').addEventListener('click', ( item ) => {
         item.target.classList.toggle('lnr-menu');
         item.target.classList.toggle('lnr-cross');
@@ -96,11 +107,11 @@ function navigationFunctionality() {
 
     var liHasDropdown = document.querySelectorAll('nav > ul > li.has-dropdown');
 
-    liHasDropdown.forEach( ( item ) => {
-        item.addEventListener('click', ( event ) => {
-            let child = item.querySelector('ul');
+    liHasDropdown.forEach((item) => {
+        item.addEventListener('click', (event) => {
+            let child = event.toElement.nextElementSibling;
 
-            if( child !== null) {
+            if (child !== null) {
                 child.classList.toggle('visible');
             }
         });
@@ -169,7 +180,7 @@ function navigationFunctionality() {
     });
 }
 
-function renderFacts(data) {
+function renderFacts( data ) {
     let HTML = '';
 
     data.forEach(fact => {
@@ -186,7 +197,7 @@ function renderFacts(data) {
     return document.getElementById('facts').innerHTML = HTML;
 }
 
-function counterUp(data) {
+function counterUp( data ) {
     let elements    = document.querySelectorAll('.counter'),
         duration    = 2000,
         step        = 100,
@@ -208,6 +219,146 @@ function counterUp(data) {
     };
 
     setInterval(count, duration / step);
+}
+
+function renderProjects( data ) {
+    let PROJECTS    = '';
+    let categories  = [];
+    let CATEGORIES  = [];
+
+    for (let i = 0; i < data.length; i++) {
+        let project = data[i];
+
+        PROJECTS += `
+            <div class="col-4 visible" data-category="${project.category}">
+                <div class="project-photo">
+                    <div class="overlay"></div>
+                    <img src="./img/gallery/${project.img}" alt="Project image">
+                </div>
+                <h4>${project.title}</h4>
+                <div class="project-category">${project.text}</div>
+            </div>
+        `;
+
+        if (categories.indexOf(project.category) === -1) {
+            if (i === 0) {
+                categories.push('All');
+                CATEGORIES = '<div class="filter active">All</div>';
+            }
+
+            categories.push(project.category);
+
+            CATEGORIES += `<div class="filter">${project.category}</div>`;
+        }
+    }
+
+    document.querySelector('.project-categories > .col').innerHTML = CATEGORIES;
+
+    return document.querySelector('.projects .row.flex').innerHTML = PROJECTS;
+}
+
+function filterGallery() {
+    let categories = document.querySelectorAll('.project-categories > .col > .filter');
+
+    categories.forEach( ( item ) => {
+        item.addEventListener('click', ( event ) => {
+            let category = event.target.textContent;
+
+            event.preventDefault();
+
+            document.querySelector('.project-categories > .col > .active').classList.remove('active');
+            event.target.classList.add('active');
+
+            let projects = document.querySelectorAll('.projects .row.flex > .col-4');
+
+            projects.forEach( ( project ) => {
+                if (category === 'All') {
+                    project.classList.add('visible');
+                } else {
+                    if (project.dataset.category === category) {
+                        project.classList.add('visible');
+                    } else {
+                        project.classList.remove('visible');
+                    }
+                }
+            });
+        });
+    });
+}
+
+function zoomProject() {
+    document.querySelectorAll('.project-photo').forEach( ( project, index ) => {
+
+        project.addEventListener('click', ( event ) => {
+            let node    = document.createElement('div');
+            let length  = projects.length;
+            let INDEX = index;
+
+            node.className = 'gallery-zoom';
+            node.innerHTML = `
+                <div class="gallery-close"></div>
+                <span class="lnr lnr-arrow-left-circle" data-side="left"></span>
+                <div class="showing">
+                    <span class="lnr lnr-cross-circle"></span>
+                    <figure>
+                        <img src="./img/gallery/${projects[index].img}" alt="Project" data-side="right">
+                        <figcaption>${index+1} of ${length}</figcaption>
+                    </figure>
+                </div>
+                <span class="lnr lnr-arrow-right-circle" data-side="right"></span>
+            `;
+
+            document.body.appendChild(node);
+
+            let x = document.querySelector('.showing > .lnr-cross-circle');
+
+            if (x !== null) {
+                x.addEventListener('click', () => {
+                    document.querySelector('.gallery-zoom').remove();
+                });
+
+                document.addEventListener('keydown', ( event ) => {
+                    if( event.key === "Escape") {
+                        if (document.querySelector('.gallery-zoom')) {
+                            document.querySelector('.gallery-zoom').remove();
+                        }
+                    }
+                });
+
+                document.querySelector('.gallery-close').addEventListener('click', () => {
+                    document.querySelector('.gallery-zoom').remove();
+                });
+            }
+
+            document.querySelectorAll('.lnr-arrow-right-circle, .lnr-arrow-left-circle, figure img').forEach(item => {
+                item.addEventListener('click', (event) => {
+                    if (item.dataset.side === 'right' ) {
+
+                        if (INDEX === length-1) {
+                            INDEX = -1;
+                        }
+                        INDEX++;
+
+                        let photo = `./img/gallery/${projects[INDEX].img}`;
+
+                        document.querySelector('figure img').setAttribute('src', photo);
+                        document.querySelector('figcaption').innerHTML = `${INDEX+1} of ${length}`;
+                    }
+                    if( item.dataset.side === 'left' ) {
+                        if (INDEX === 0) {
+                            INDEX = length;
+                        }
+                        INDEX--;
+
+                        let photo = `./img/gallery/${projects[INDEX].img}`;
+
+                        document.querySelector('figure img').setAttribute('src', photo);
+                        document.querySelector('figcaption').innerHTML = `${INDEX+1} of ${length}`;
+                    }
+                });
+            });
+        });
+    });
 }
 
 function renderFeedback(data) {
@@ -358,4 +509,124 @@ function renderBlog( data ) {
     }
 
     return document.querySelector('.posts .row.flex').innerHTML = HTML;
+}
+
+function countInRow(params) {
+    if (window.matchMedia("(min-width: 1200px)").matches)   showInRow = 5;
+    if (window.matchMedia("(max-width: 992px)").matches)    showInRow = 4;
+    if (window.matchMedia("(max-width: 768px)").matches)    showInRow = 3;
+    if (window.matchMedia("(max-width: 576px)").matches)    showInRow = 2;
+}
+
+function renderBrands() {
+    BRANDS  = '';
+    HTML    = '';
+
+    countInRow();
+    window.addEventListener('resize', renderBrands);
+
+    let brandsCount = brands.length;
+        showInRow = (showInRow > brandsCount) ? brandsCount : showInRow;
+        showWidth = 100 / showInRow;
+        position = showInRow + 1;
+    let data        = [
+        ...brands.slice(brands.length - showInRow),
+        ...brands,
+        ...brands.slice(0, showInRow),
+    ];
+        count       = data.length;
+    let colWidth    = 100 / count;
+    let middle      = Math.round(data.length / 2)-showInRow;
+    let showMiddle  = middle - showInRow * showWidth;
+    let rowWidth    = count / showInRow * 100;
+
+    data.forEach( ( item, index ) => {
+        BRANDS += `
+            <div class="col" data-index="${index}" style="flex-basis: ${colWidth}%">
+                <a href="${item.link}"><img src="./img/brands/${item.img}" alt="Brand logo"></a>
+            </div>
+        `;
+    });
+
+    HTML = `
+        <div class="row flex" style="width: ${rowWidth}%;margin-left: ${showMiddle}%">
+            ${BRANDS}
+        </div>
+    `;
+
+    return document.querySelector('.brands > .container').innerHTML = HTML;
+}
+
+/* not working. coding in progress */
+function dragBrands() {
+    let row = document.querySelector('.brands > .container > .row');
+    // row.addEventListener('drag', () => {
+    //     console.log('mousedown');
+    //     row.addEventListener('mouseover', dragBrands, true);
+    // });
+
+
+    // row.addEventListener('mouseup', () => {
+    //     console.log('mouseUP');
+    //     row.removeEventListener('mouseover', dragBrands, true);
+    // });
+
+    // console.log(event.clientX);
+    // // document.querySelector('.brands img').draggable = false;
+    // if (event.offsetX <= xxx) {
+    //     // console.log('draging to right' + xxx);
+    //     // row.style.marginLeft = (ml + (1)) + '%';
+    // }
+    // if (event.offsetX >= xxx) {
+    //     // console.log('draggin to left' + xxx);
+    //     // let ml = parseInt(row.style.marginLeft);
+    //     // row.style.marginLeft = (ml + (-1)) + '%';
+    // }
+
+    /*if (typeof lastX !== 'undefined') {
+        var diff = lastX - event.clientX;
+        let ml = parseFloat(row.style.marginLeft);
+
+        if (diff > 0) {
+            row.style.marginLeft = ml - diff/11 + '%';
+        }
+        if (diff < 0) {
+            row.style.marginLeft = ml - diff/11 + '%';
+        }
+
+    } else console.log('undifineeeeeeed');*/
+
+    lastX = event.clientX;
+}
+
+function brandsFunctionality() {
+    setTimeout(function moveBrand() {
+        timer = setInterval(moveBrands, time / step);
+
+        setTimeout(() => {
+            clearInterval(timer);
+            setTimeout(moveBrand, setAfter);
+        }, time);
+    }, setAfter);
+}
+
+function moveBrands() {
+    let row = document.querySelector('.brands > .container > .row');
+    let ml = parseFloat(row.style.marginLeft);
+
+    if (position > count - showInRow) {
+        row.style.marginLeft = 0 + '%';
+        position = 0;
+        i = step;
+    }
+
+    if (i < step) {
+        row.style.marginLeft = ml - (showWidth / step) + '%';
+        i++;
+    } else {
+        position++;
+        i = 0;
+        clearInterval(timer);
+        // row.style.marginLeft = Math.round(parseFloat(row.style.marginLeft).toFixed(3))+'%';
+    }
 }
