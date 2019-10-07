@@ -16,8 +16,15 @@
     padding-bottom: 7rem;
 }
 
-.feeds {
+.feedbacks > .container {
     position: relative;
+}
+
+.testimonial {
+    overflow: hidden;
+}
+
+.feeds {
     align-items: flex-start;
     flex-wrap: nowrap;
 }

@@ -9,6 +9,8 @@ renderServices ( services );
 
 renderFacts( facts );
 counterUp( facts );
+renderFeedback(feedbacks);
+changeFeed();
 renderPlans(plans);
 
 renderProjects( projects );
