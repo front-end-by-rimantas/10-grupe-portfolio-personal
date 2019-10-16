@@ -1,0 +1,70 @@
+.posts
+    .row:not(:first-child)
+        @extend .text-left
+
+    .col-4
+        &:hover
+            .photo
+                img
+                    transform: scale(1.05)
+                    transition: all .3s ease 0s
+                    cursor: pointer
+
+            h4
+                color: $primary-color
+
+        a
+            text-decoration: none
+
+        .flex
+            flex-direction: row
+            justify-content: flex-start
+
+        .photo
+            img
+                transition: all .3s ease 0s
+                width: 100%
+
+        .photo
+            overflow: hidden
+
+        .post-info
+            @include size(.8);
+            padding: .7em 0
+            border-bottom: 1px solid $light-secondary
+
+            .person
+                flex-basis: 45%
+                img
+                    max-width: 30px
+
+            a
+                color: $dark-color
+                margin-left: .5em
+                font-weight: 300
+
+            .lnr
+                @include size(1);
+
+            .meta
+                flex-basis: 55%
+                &.flex
+                    justify-content: flex-end
+
+                p
+                    margin: 0
+
+                *
+                    margin-left: 0.4em
+
+        .post
+            margin: 1em 0 2em 0
+
+            h4
+                @include size(1.1)
+                font-weight: 600
+                @extend .text-uppercase
+
+        .col
+            padding: 0
+            flex-basis: unset

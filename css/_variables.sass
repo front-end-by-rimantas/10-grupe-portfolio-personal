@@ -1,0 +1,43 @@
+$primary-color: #8490ff
+$secondary-color: #62bdfc
+
+$light-color: #f9f9ff
+$light-secondary: #eeeeee
+$light-dark-color: #212529
+
+$dark-color: #222222
+$dark-primary-color: #04091e
+$dark-secondary: #333333
+
+$text-color: #777777
+$white-color: #ffffff
+$arrow-color: #bababa
+
+$sm: 576px
+$md: 768px
+$lg: 992px
+$xl: 1200px
+$header-height: 4.5em
+$padding: 4em
+
+$gradient: linear-gradient(to right, $primary-color, $secondary-color)
+
+$backgrounds:   (light: $light-color, gradient: $gradient)
+
+@mixin size($x)
+    font-size: #{$x}rem
+    line-height: #{$x + 0.6}rem
+
+@function getText($type)
+    $aligns:    (1: left, 2: center, 3: right)
+    $mods:      (1: capitalize, 2: uppercase)
+
+    @if ($type == 'align')
+        @return map-values($aligns)
+    @else
+        @return map-values($mods)
+
+@mixin text($type)
+    @each $value in getText($type)
+        .text-#{$value}
+            text-#{$type}: $value

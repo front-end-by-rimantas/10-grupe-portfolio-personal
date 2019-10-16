@@ -1,0 +1,69 @@
+footer
+    background: $dark-primary-color
+    padding: $padding 0
+    .row
+        @extend .text-left
+
+        h3
+            color: $white-color
+            margin-bottom: .7em
+            @include size(1.4)
+
+        .col
+            padding: 0
+            &:first-child
+                flex-basis: 55%
+            &:not(:first-child)
+                flex-basis: 40%
+            @media (min-width: $lg)
+                &:first-child
+                    flex-basis: 40%
+                &:not(:first-child)
+                    flex-basis: 30%
+                &:last-child
+                    flex-basis: 15%
+
+            &:not(:last-child)
+                margin-bottom: 2em
+
+            a
+                color: $primary-color
+                text-decoration: none
+
+                &:hover
+                    color: $secondary-color
+
+            p
+                margin-bottom: 1em
+
+                span
+                    color: pink
+                    @include size(1)
+                    margin: 0 .3em
+
+            .copyright
+                p
+                    margin: 0
+
+            form
+                display: flex
+                width: 100%
+
+                input
+                    padding: .8em 1.5em
+                    flex-basis: 100%
+
+                button
+                    background: $primary-color
+                    color: $white-color
+                    border: none
+                    flex-basis: 50px
+                    cursor: pointer
+
+            .social-networks
+                a
+                    color: $white-color
+                    padding: .3em
+
+                    &:hover
+                        color: $primary-color
