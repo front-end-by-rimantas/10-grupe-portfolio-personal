@@ -92,12 +92,12 @@ body * {
   overflow: hidden;
 }
 
-@media (max-width: 576px) {
-  .sm-width-70 {
+@media (max-width: 768px) {
+  .md-width-70 {
     max-width: 70%;
     margin-bottom: 2em;
   }
-  .sm-first {
+  .md-first {
     -webkit-box-ordinal-group: 0;
         -ms-flex-order: -1;
             order: -1;
@@ -110,10 +110,11 @@ body * {
   max-width: 1140px;
 }
 
-.col-default, .col, .col-6, .col-4, .col-3 {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-  padding: 0 0.5em;
+.col-default, .col, .col-6, .col-4, .col-3, .col-auto {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  padding: 0.3em;
 }
 
 @media (min-width: 768px) {
@@ -153,6 +154,11 @@ body * {
     -ms-flex-preferred-size: 25%;
         flex-basis: 25%;
   }
+}
+
+.col-auto {
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -426,9 +432,7 @@ header .row .col nav {
 
 .projects .project-photo {
   position: relative;
-  max-width: -webkit-max-content;
-  max-width: -moz-max-content;
-  max-width: max-content;
+  display: inline-block;
 }
 
 .projects .project-photo .overlay {
@@ -442,11 +446,19 @@ header .row .col nav {
           justify-content: start;
 }
 
-@media (min-width: 576px) {
+@media (max-width: 576px) and (min-width: 576px) {
   .projects .row.flex {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .projects .row.flex {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
 }
 
@@ -698,6 +710,20 @@ header .row .col nav {
   display: block;
 }
 
+@media (min-width: 576px) {
+  .posts .col-4 {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .posts .col-4 {
+    -ms-flex-preferred-size: 33%;
+        flex-basis: 33%;
+  }
+}
+
 .posts .col-4:hover .photo img {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
@@ -808,91 +834,85 @@ footer .row h3 {
   line-height: 2rem;
 }
 
-footer .row .col {
-  padding: 0;
-}
-
-footer .row .col:first-child {
-  -ms-flex-preferred-size: 55%;
-      flex-basis: 55%;
-}
-
-footer .row .col:not(:first-child) {
-  -ms-flex-preferred-size: 40%;
-      flex-basis: 40%;
-}
-
-@media (min-width: 992px) {
-  footer .row .col:first-child {
-    -ms-flex-preferred-size: 40%;
-        flex-basis: 40%;
-  }
-  footer .row .col:not(:first-child) {
-    -ms-flex-preferred-size: 30%;
-        flex-basis: 30%;
-  }
-  footer .row .col:last-child {
-    -ms-flex-preferred-size: 15%;
-        flex-basis: 15%;
-  }
-}
-
-footer .row .col:not(:last-child) {
-  margin-bottom: 2em;
-}
-
-footer .row .col a {
+footer .row a {
   color: #8490ff;
   text-decoration: none;
 }
 
-footer .row .col a:hover {
+footer .row a:hover {
   color: #62bdfc;
 }
 
-footer .row .col p {
+@media (min-width: 576px) {
+  footer .row .col-6, footer .row .col-auto {
+    margin-bottom: 2em;
+  }
+}
+
+@media (min-width: 768px) {
+  footer .row .col-6, footer .row .col-auto {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  footer .row .col-6 {
+    -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+    margin: 0;
+    padding-right: 1.5em;
+  }
+  footer .row .col-auto {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    margin: 0;
+  }
+}
+
+footer .row p {
   margin-bottom: 1em;
 }
 
-footer .row .col p span {
+footer .row p span {
   color: pink;
   font-size: 1rem;
   line-height: 1.6rem;
   margin: 0 .3em;
 }
 
-footer .row .col .copyright p {
+footer .row .copyright p {
   margin: 0;
 }
 
-footer .row .col form {
+footer .row form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+footer .row form input {
+  padding: .7em;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   width: 100%;
 }
 
-footer .row .col form input {
-  padding: .8em 1.5em;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-}
-
-footer .row .col form button {
+footer .row form button {
   background: #8490ff;
   color: #ffffff;
   border: none;
-  -ms-flex-preferred-size: 50px;
-      flex-basis: 50px;
+  padding: 0 1.4em;
   cursor: pointer;
 }
 
-footer .row .col .social-networks a {
+footer .row .social-networks a {
   color: #ffffff;
   padding: .3em;
 }
 
-footer .row .col .social-networks a:hover {
+footer .row .social-networks a:hover {
   color: #8490ff;
 }
 

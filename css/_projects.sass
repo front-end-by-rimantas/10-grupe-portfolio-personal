@@ -9,7 +9,8 @@
 
     .project-photo
         position: relative
-        max-width: max-content
+        // max-width: max-content
+        display: inline-block;
 
         .overlay
             opacity: 0
@@ -18,10 +19,10 @@
     .row
         &.flex
             justify-content: start
-            @media (min-width: $sm)
+            @media (max-width: $sm) and (min-width: $sm)
                 align-items: center
-            // @media (min-width: $md)
-            //     justify-content: flex-start
+            @media (min-width: $md)
+                justify-content: flex-start
         .col-4
             display: none
             animation: opa 2s ease

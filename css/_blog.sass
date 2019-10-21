@@ -3,6 +3,11 @@
         @extend .text-left
 
     .col-4
+        @media (min-width: $sm)
+            flex-basis: 100%
+        @media (min-width: $lg)
+            flex-basis: 33%
+
         &:hover
             .photo
                 img
