@@ -1,0 +1,62 @@
+.flex
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    justify-content: space-between
+    @media (max-width: $sm)
+        flex-wrap: nowrap
+    @media (min-width: $md)
+        flex-direction: row
+
+.row-center
+    align-items: center
+
+.column-center
+    justify-content: center
+
+@include text('align')
+@include text('transform')
+
+@each $key, $bg in $backgrounds
+    .bg-#{$key}
+        background: $bg
+
+.visible
+    display: block !important
+
+.hidden
+    display: none !important
+
+.overflow-hidden
+    overflow: hidden
+
+@media (max-width: $md)
+    .md-width-70
+        max-width: 70%
+        margin-bottom: 2em
+
+    .md-first
+        order: -1
+
+//     .hidden-md
+//         display: none
+
+//     .hidden
+//         display: block !important
+
+//     section .col p
+//         padding: 0 1rem
+
+// @media (min-width: 1200px)
+//     .container
+//         max-width: 1140px
+// @media (max-width: 992px)
+//     .container
+//         max-width: 960px
+// @media (max-width: 768px)
+//     .container
+//         max-width: 720px
+
+// @media (max-width: 576px)
+//     .container
+//         max-width: 540px

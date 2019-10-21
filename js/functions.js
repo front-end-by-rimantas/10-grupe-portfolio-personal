@@ -369,13 +369,13 @@ function renderFeedback(data) {
 
     // first original feedback element
     let firstOriginalFeedback = 1;
-    
+
     let HTML = '';
     for (let i = 0; i < data.length; i++){
         let feed = data[i];
-        
-        HTML += `<div class="col-6 flex feed" 
-                      data-index="${i}" 
+
+        HTML += `<div class="col-6 flex feed"
+                      data-index="${i}"
                       style="flex-basis: ${100 / data.length}%;">
                     <div class="row">
                         <div class="col">
@@ -392,45 +392,45 @@ function renderFeedback(data) {
                 </div>`;
     }
 
-    let FEEDS = `<div class="row flex row-center feeds" 
+    let FEEDS = `<div class="row flex row-center feeds"
                       style="width: ${100 * (data.length / 2)}%;
                       margin-left: -${(firstOriginalFeedback * 100) / 2}%">
                     ${HTML}
                 </div>`;
- 
-    return document.querySelector('.testimonial').innerHTML = FEEDS;
+
+    // return document.querySelector('.testimonial').innerHTML = FEEDS;
 }
 
 function changeFeed() {
     let arrows = document.querySelectorAll('.feedback-btn .lnr');
     const list = document.querySelector('.feeds');
     let currentFeedbackIndex = parseInt(list.style.marginLeft) / -50;
-    const length = document.querySelectorAll('.feed').length; 
+    const length = document.querySelectorAll('.feed').length;
     const duration = 1000;
-    const steps = 100;   
+    const steps = 100;
     // let directionIndex = 1;
-    
+
     arrows.forEach((arrow) => {
         arrow.addEventListener('click', () => {
             const direction = arrow.dataset.direction;
-            
+
             if (direction === 'left') {
                 // directionIndex = 1;
                 currentFeedbackIndex--;
                 if (currentFeedbackIndex === 0){
                     currentFeedbackIndex = length - 2;
-                } 
+                }
             }
             if (direction === 'right') {
                 // directionIndex = -1;
                 currentFeedbackIndex++;
                 if (currentFeedbackIndex === length - 1){
                     currentFeedbackIndex = 1;
-                } 
+                }
             }
 
             list.style.marginLeft = -currentFeedbackIndex * 50 +'%';
-            
+
             // let step = 0;
             // const timer = setInterval(() => {
             //     if (step <= steps) {
@@ -442,7 +442,7 @@ function changeFeed() {
             // }, duration / steps);
         })
     });
-            
+
 }
 
 function renderPlans(data) {
@@ -465,7 +465,7 @@ function renderPlans(data) {
                     <a class="text-uppercase" href="#">${plan.button}</a>
                 </div>`;
     }
-    return document.querySelector('.plans .row.flex.text-center').innerHTML = HTML;
+    return document.querySelector('.plans .row.flex').innerHTML = HTML;
 }
 
 function renderBlog( data ) {

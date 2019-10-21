@@ -1,0 +1,38 @@
+.container
+    width: 90%
+    margin: 0 auto;
+    max-width: 1140px
+
+.row
+    @extend .text-center
+
+.col-default
+    flex: 0 0 100%
+    padding: 0.3em
+
+.col
+    @extend .col-default
+
+.col-6
+    @extend .col-default
+    @media (min-width: $md)
+        flex-basis: 49%
+
+.col-4
+    @extend .col-default
+    @media (min-width: $md)
+        flex-basis: 50%
+    @media (min-width: $lg)
+        flex-basis: 33%
+
+.col-3
+    @extend .col-default
+    padding: 0 0.5em
+    @media (min-width: $md)
+        flex-basis: 50%
+    @media (min-width: $lg)
+        flex-basis: 25%
+
+.col-auto
+    @extend .col-default
+    flex-basis: auto

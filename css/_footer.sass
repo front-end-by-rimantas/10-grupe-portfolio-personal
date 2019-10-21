@@ -1,0 +1,70 @@
+footer
+    background: $dark-primary-color
+    padding: $padding 0
+
+    .row
+        @extend .text-left
+
+        h3
+            color: $white-color
+            margin-bottom: .7em
+            @include size(1.4)
+
+        a
+            color: $primary-color
+            text-decoration: none
+
+            &:hover
+                color: $secondary-color
+
+        @media(min-width: $sm)
+            .col-6, .col-auto
+                margin-bottom: 2em
+
+        @media(min-width: $md)
+            .col-6, .col-auto
+                flex-basis: 100%
+
+        @media(min-width: $lg)
+            .col-6
+                flex-basis: 40%
+                margin: 0
+                padding-right: 1.5em
+            .col-auto
+                flex-basis: auto
+                margin: 0
+
+        p
+            margin-bottom: 1em
+
+            span
+                color: pink
+                @include size(1)
+                margin: 0 .3em
+
+        .copyright
+            p
+                margin: 0
+
+        form
+            display: flex
+
+            input
+                padding: .7em
+                flex-grow: 1
+                width: 100%
+
+            button
+                background: $primary-color
+                color: $white-color
+                border: none
+                padding: 0 1.4em
+                cursor: pointer
+
+        .social-networks
+            a
+                color: $white-color
+                padding: .3em
+
+                &:hover
+                    color: $primary-color

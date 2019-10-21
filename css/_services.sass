@@ -1,0 +1,27 @@
+.service
+    cursor: pointer
+    padding: 1em
+
+    .lnr
+        color: $dark-color;
+        @include size(2)
+        font-weight: 400
+
+    h3
+        @include size(1.2)
+        margin: .7em
+
+    p
+        max-width: 65%
+        margin-left: auto
+        margin-right: auto
+        @media (min-width: $md)
+            max-width: 100%
+
+    &:hover .lnr
+        background: $gradient
+        -webkit-text-fill-color: transparent
+        -webkit-background-clip: text
+
+    &:hover h3
+        color: $primary-color

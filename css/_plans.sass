@@ -1,0 +1,70 @@
+.plans
+    .col-3
+        background-color: $light-color
+        padding: 2em 1em
+        margin-bottom: 2em
+        transition: transform .5s ease 0s
+
+        p:first-of-type
+            margin-bottom: 1em
+            border: none
+
+        p
+            margin: 0 auto
+            padding: .7em 0
+            border-top: 1px solid $light-secondary
+
+        p:last-of-type
+            border-bottom: 1px solid $light-secondary
+            margin-bottom: 2em
+
+        h3
+            background-color: rgba(132,144,255,.1)
+            border: 30px solid rgba(132,144,255,.1)
+            border-radius: 50%
+            @include size(2.4)
+            font-weight: 300
+            width: 4em
+            height: 4em
+            padding-top: .6em
+            margin: 0 auto
+
+        h4
+            @include size(1.2)
+            font-weight: 600
+            margin: 1.5em 0
+
+        h6
+            @include size(2.4)
+            font-weight: 600
+
+        a
+            background-color: $white-color
+            color: $dark-color
+            @include size(0.9)
+            font-weight: 600
+            text-decoration: none
+            padding: 1em
+            display: none
+
+        &:hover
+            background: $gradient
+            transform: scale(1.05)
+            transition: all .7s ease 0s
+            cursor: pointer
+
+            h3, h4, p
+                color: $white-color
+
+            h3
+                border-color: rgba(255, 255, 255, .21)
+                background-color: rgba(255, 255, 255, .1)
+
+            p
+                border-color: $white-color
+
+            h6
+                display: none
+
+            a
+                display: block
