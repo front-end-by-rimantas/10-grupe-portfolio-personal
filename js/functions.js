@@ -19,35 +19,16 @@ function renderServices( data ) {
 }
 
 function renderNavigation ( target ) {
-    let LINKS = '';
+    let HTML = '';
+    renderMobile = target === '.mobile-nav';
 
     for (let i = 0; i < navigation_links.length; i++) {
-        let d       = navigation_links[i];
-        let aClass  = d.hasOwnProperty('aClass')
-                    ? `class="${d.aClass}" `
-                    : '';
-        let liClass = d.hasOwnProperty('liClass')
-                    ? `class="${d.liClass}" `
-                    : '';
-        let CHILD   = '';
+        let data    = navigation_links[i];
+        let CHILD   = addChild(data);
 
-        CHILD = addChild( d );
-
-        LINKS += `
-            <li ${liClass}>
-                <a ${aClass}href="#">${d.title}</a>
-                ${CHILD}
-            </li>
-        `;
+        if (data.hasOwnProperty('childs')) HTML += `<div class="dropdown"><a class="has-childs" href="#">${data.title}</a>${CHILD}</div>`;
+        else HTML += `<a href="#">${data.title}</a>`;
     }
-
-    let flex = target === 'nav' ? 'class="flex" ' : '';
-
-    let HTML = `
-        <ul ${flex}>
-            ${LINKS}
-        </ul>
-    `;
 
     return document.querySelector(target).innerHTML = HTML;
 }
@@ -59,124 +40,84 @@ function addChild ( array ) {
     if (array.hasOwnProperty('childs')) {
         for (let i = 0; i < array.childs.length; i++) {
             let child = array.childs[i];
-            let aClass = child.hasOwnProperty('aClass')
-                ? `class="${child.aClass}" `
-                : '';
-            let liClass = child.hasOwnProperty('liClass')
-                ? `class="${child.liClass}" `
-                : '';
             let CHILD = addChild( child );
 
-            LINKS += `
-                <li ${liClass}>
-                    <a ${aClass}href="${child.link}">${child.title}</a>
-                    ${CHILD}
-                </li>
-            `;
+            if (child.hasOwnProperty('childs')) LINKS += `<div class="dropdown"><a class="has-childs" href="#">${child.title}</a>${CHILD}</div>`;
+            else LINKS += `<a href="#">${child.title}</a>`;
         }
 
-        HTML = `
-            <ul>
-                ${LINKS}
-            </ul>
-        `;
+        HTML = renderMobile ? LINKS : `<div class="childs">${LINKS}</div>`;
     }
 
     return HTML;
 }
 
+function toggleMobileNav () {
+    let menu = document.querySelector('i.lnr.xt');
+
+    document.querySelector('.mobile-overlay').classList.toggle('show');
+    document.querySelector('.mobile-nav').classList.toggle('show');
+    menu.classList.toggle('lnr-menu');
+    menu.classList.toggle('lnr-cross');
+}
+
+function mobileLnr () {
+    toggleMobileNav();
+
+    document.querySelector('.mobile-overlay').addEventListener('click', toggleMobileNav, false);
+    document.addEventListener('keydown', () => { if( event.key === "Escape" && document.querySelector('.mobile-nav.show')) toggleMobileNav() });
+}
+
 function navigationFunctionality() {
     document.addEventListener('scroll', ( ) => {
         let element = document.querySelector('header').classList;
-        if (window.scrollY > 100) {
-            element.add('shadow');
-        }
 
-        if (window.scrollY < 100) {
-            element.remove('shadow');
-        }
+        (window.scrollY > 100) ? element.add('shadow') : element.remove('shadow');
     })
 
-    document.querySelector('.lnr-menu').addEventListener('click', ( item ) => {
-        item.target.classList.toggle('lnr-menu');
-        item.target.classList.toggle('lnr-cross');
+    document.querySelector('.lnr-menu').addEventListener('click', mobileLnr);
 
-        document.querySelector('.mobile-overlay').classList.toggle('visible');
-        document.querySelector('.mobile-nav').classList.toggle('visible');
-    });
+    let dropdown = document.querySelectorAll('nav.mobile-nav .dropdown');
 
-    var liHasDropdown = document.querySelectorAll('nav > ul > li.has-dropdown');
+    dropdown.forEach( item => {
+        dropdownTitle = item.firstElementChild;
 
-    liHasDropdown.forEach((item) => {
-        item.addEventListener('click', (event) => {
-            let child = event.toElement.nextElementSibling;
+        dropdownTitle.addEventListener('click', ( e ) => {
+            node = item.firstElementChild.nextElementSibling;
+            e.target.classList.toggle('active');
 
-            if (child !== null) {
-                child.classList.toggle('visible');
+            while ( node ) {
+                node.classList.toggle('visible');
+                node = node.nextElementSibling;
             }
         });
     });
 
-    document.querySelectorAll('nav > ul.flex li').forEach( ( item ) => {
-        item.addEventListener('mouseenter', ( enter ) => {
-            var liList = document.querySelectorAll('ul.flex > li.has-dropdown');
+    dropdown = document.querySelectorAll('header nav .dropdown');
 
-            liList.forEach((item) => {
-                if (item.querySelector('a').textContent !== enter.target.querySelector('a').textContent) {
-                    liList.forEach( ( li ) => {
-                        if (li.querySelector('a').textContent === enter.target.querySelector('a').textContent) {
-                            item.querySelector('ul').classList.remove('visible');
-                        }
-                    });
-                }
+    dropdown.forEach( item => {
+        dropdownTitle = item.firstElementChild;
+
+        dropdownTitle.addEventListener('mouseover', ( e ) => {
+            node = item.firstElementChild.nextElementSibling;
+            e.target.classList.add('active');
+
+            while ( node ) {
+                node.classList.add('visible');
+                node = node.nextElementSibling;
+            }
+        });
+
+        item.addEventListener('mouseenter', () => {
+            item.addEventListener('mouseleave', ()=> {
+                let visibleItems = item.querySelectorAll('.visible');
+                let activeItems = item.querySelectorAll('.active');
+
+                visibleItems.forEach(i => i.classList.remove('visible'));
+                activeItems.forEach(i => i.classList.remove('active'));
             });
-
-            // HOVER LI
-            let child = enter.target.querySelector('ul');
-
-            // LI HAVE UL
-            if(child !== null) {
-                let childLi = child.querySelector('li.has-dropdown');
-
-                // LEAVE CHILD LI
-                if(childLi !== null) {
-                    childLi.addEventListener('mouseleave', ( leaved ) => {
-                        let neighbour = enter.target.querySelector('li:not(.has-dropdown)');
-
-                        if (neighbour !== null) {
-                            neighbour.addEventListener('mouseenter', () => {
-                                childLi.querySelector('ul').classList.remove('visible');
-                            });
-                        }
-
-                    });
-                }
-
-                child.classList.add('visible');
-
-                // LEAVE LI UL
-                child.addEventListener('mouseleave', () => {
-                    child.classList.remove('visible');
-                });
-                // LEAVE HEADER
-                document.querySelector('header').addEventListener('mouseleave', () => {
-                    child.classList.remove('visible');
-                });
-            } else {
-                let liList = document.querySelectorAll('nav > ul.flex > li:not(.has-dropdown)');
-
-                liList.forEach( ( item ) => {
-                    // HOVER LI WITHOUT UL
-                    item.addEventListener('mouseenter', () => {
-                        let ulList = document.querySelectorAll('nav > ul.flex > li.has-dropdown ul');
-
-                        ulList.forEach( ( ul ) => {
-                            ul.classList.remove('visible');
-                        });
-                    });
-                });
-            }
         });
+        
     });
 }
 
