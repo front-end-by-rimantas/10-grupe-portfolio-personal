@@ -1,8 +1,4 @@
-const time = 500;
-const setAfter = 5 * time, step = 50;
-
-let showWidth, count, timer, renderMobile = false;
-let showInRow = 3, position = 0, i = 0;
+let renderMobile = false;
 
 const navigation_links = [
     { title: 'home' },
@@ -252,3 +248,22 @@ const brands = [
     { img: '4.png' },
     { img: '5.png' }
 ];
+
+const target = document.querySelector('.brands .container');
+let targetWidth = parseInt(getComputedStyle(target).width);
+const minItemWidth = 200;
+let maxElements = Math.floor(targetWidth / minItemWidth);
+let itemWidth = targetWidth / maxElements;
+let data = [
+    ...brands.slice(brands.length - maxElements),
+    ...brands,
+    ...brands.slice(0, maxElements),
+];
+let firstItemIndex = Math.floor(data.length / 2) - maxElements;
+let time = 500;
+let delay = 5000;
+let delayMultipy = 2;
+let steps = 70;
+let i = 0, s = 0, timer = 0;
+let minus = itemWidth / steps;
+let wait = true;

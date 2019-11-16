@@ -18,5 +18,5 @@ zoomProject();
 
 renderBlog(blog_posts);
 
-// renderBrands();
-// brandsFunctionality();
+renderBrands();
+window.addEventListener('resize', renderBrands);
