@@ -1,4 +1,4 @@
-function renderServices( data ) {
+function renderServices(data) {
     let HTML = '';
 
     for (let i = 0; i < data.length; i++) {
@@ -18,13 +18,13 @@ function renderServices( data ) {
     return document.querySelector('.services .row.flex').innerHTML = HTML;
 }
 
-function renderNavigation ( target ) {
+function renderNavigation(target) {
     let HTML = '';
     renderMobile = target === '.mobile-nav';
 
     for (let i = 0; i < navigation_links.length; i++) {
-        let data    = navigation_links[i];
-        let CHILD   = addChild(data);
+        let data = navigation_links[i];
+        let CHILD = addChild(data);
 
         if (data.hasOwnProperty('childs')) HTML += `<div class="dropdown"><a class="has-childs" href="#">${data.title}</a>${CHILD}</div>`;
         else HTML += `<a href="#">${data.title}</a>`;
@@ -33,14 +33,14 @@ function renderNavigation ( target ) {
     return document.querySelector(target).innerHTML = HTML;
 }
 
-function addChild ( array ) {
-    let LINKS   = '';
-    let HTML    = '';
+function addChild(array) {
+    let LINKS = '';
+    let HTML = '';
 
     if (array.hasOwnProperty('childs')) {
         for (let i = 0; i < array.childs.length; i++) {
             let child = array.childs[i];
-            let CHILD = addChild( child );
+            let CHILD = addChild(child);
 
             if (child.hasOwnProperty('childs')) LINKS += `<div class="dropdown"><a class="has-childs" href="#">${child.title}</a>${CHILD}</div>`;
             else LINKS += `<a href="#">${child.title}</a>`;
@@ -52,7 +52,7 @@ function addChild ( array ) {
     return HTML;
 }
 
-function toggleMobileNav () {
+function toggleMobileNav() {
     let menu = document.querySelector('i.lnr.xt');
 
     document.querySelector('.mobile-overlay').classList.toggle('show');
@@ -61,15 +61,15 @@ function toggleMobileNav () {
     menu.classList.toggle('lnr-cross');
 }
 
-function mobileLnr () {
+function mobileLnr() {
     toggleMobileNav();
 
     document.querySelector('.mobile-overlay').addEventListener('click', toggleMobileNav, false);
-    document.addEventListener('keydown', () => { if( event.key === "Escape" && document.querySelector('.mobile-nav.show')) toggleMobileNav() });
+    document.addEventListener('keydown', () => { if (event.key === "Escape" && document.querySelector('.mobile-nav.show')) toggleMobileNav() });
 }
 
 function navigationFunctionality() {
-    document.addEventListener('scroll', ( ) => {
+    document.addEventListener('scroll', () => {
         let element = document.querySelector('header').classList;
 
         (window.scrollY > 100) ? element.add('shadow') : element.remove('shadow');
@@ -79,14 +79,14 @@ function navigationFunctionality() {
 
     let dropdown = document.querySelectorAll('nav.mobile-nav .dropdown');
 
-    dropdown.forEach( item => {
+    dropdown.forEach(item => {
         dropdownTitle = item.firstElementChild;
 
-        dropdownTitle.addEventListener('click', ( e ) => {
+        dropdownTitle.addEventListener('click', (e) => {
             node = item.firstElementChild.nextElementSibling;
             e.target.classList.toggle('active');
 
-            while ( node ) {
+            while (node) {
                 node.classList.toggle('visible');
                 node = node.nextElementSibling;
             }
@@ -95,21 +95,21 @@ function navigationFunctionality() {
 
     dropdown = document.querySelectorAll('header nav .dropdown');
 
-    dropdown.forEach( item => {
+    dropdown.forEach(item => {
         dropdownTitle = item.firstElementChild;
 
-        dropdownTitle.addEventListener('mouseover', ( e ) => {
+        dropdownTitle.addEventListener('mouseover', (e) => {
             node = item.firstElementChild.nextElementSibling;
             e.target.classList.add('active');
 
-            while ( node ) {
+            while (node) {
                 node.classList.add('visible');
                 node = node.nextElementSibling;
             }
         });
 
         item.addEventListener('mouseenter', () => {
-            item.addEventListener('mouseleave', ()=> {
+            item.addEventListener('mouseleave', () => {
                 let visibleItems = item.querySelectorAll('.visible');
                 let activeItems = item.querySelectorAll('.active');
 
@@ -117,15 +117,15 @@ function navigationFunctionality() {
                 activeItems.forEach(i => i.classList.remove('active'));
             });
         });
-        
+
     });
 }
 
-function renderFacts( data ) {
+function renderFacts(data) {
     let HTML = '';
 
     data.forEach(fact => {
-        if(typeof(fact.number) === 'string' || fact.title === undefined || fact.title.length === 0) {
+        if (typeof (fact.number) === 'string' || fact.title === undefined || fact.title.length === 0) {
             return;
         }
 
@@ -138,15 +138,15 @@ function renderFacts( data ) {
     return document.getElementById('facts').innerHTML = HTML;
 }
 
-function counterUp( data ) {
-    let elements    = document.querySelectorAll('.counter'),
-        duration    = 2000,
-        step        = 100,
+function counterUp(data) {
+    let elements = document.querySelectorAll('.counter'),
+        duration = 2000,
+        step = 100,
         factSection = document.querySelector('#facts');
 
-    let count = function() {
-        if (window.scrollY + window.innerHeight > factSection.offsetTop){
-            for (let i = 0; i < elements.length; i++){
+    let count = function () {
+        if (window.scrollY + window.innerHeight > factSection.offsetTop) {
+            for (let i = 0; i < elements.length; i++) {
                 let grow = data[i].number > step ? Math.floor(data[i].number / step) : Math.floor(-data[i].number / step);
                 elements[i].textContent = `${data[i].skaitliukas}`;
                 data[i].skaitliukas += grow;
@@ -162,10 +162,10 @@ function counterUp( data ) {
     setInterval(count, duration / step);
 }
 
-function renderProjects( data ) {
-    let PROJECTS    = '';
-    let categories  = [];
-    let CATEGORIES  = [];
+function renderProjects(data) {
+    let PROJECTS = '';
+    let categories = [];
+    let CATEGORIES = [];
 
     for (let i = 0; i < data.length; i++) {
         let project = data[i];
@@ -201,8 +201,8 @@ function renderProjects( data ) {
 function filterGallery() {
     let categories = document.querySelectorAll('.project-categories > .col > .filter');
 
-    categories.forEach( ( item ) => {
-        item.addEventListener('click', ( event ) => {
+    categories.forEach((item) => {
+        item.addEventListener('click', (event) => {
             let category = event.target.textContent;
 
             event.preventDefault();
@@ -212,7 +212,7 @@ function filterGallery() {
 
             let projects = document.querySelectorAll('.projects .row.flex > .col-4');
 
-            projects.forEach( ( project ) => {
+            projects.forEach((project) => {
                 if (category === 'All') {
                     project.classList.add('visible');
                 } else {
@@ -228,11 +228,11 @@ function filterGallery() {
 }
 
 function zoomProject() {
-    document.querySelectorAll('.project-photo').forEach( ( project, index ) => {
+    document.querySelectorAll('.project-photo').forEach((project, index) => {
 
-        project.addEventListener('click', ( event ) => {
-            let node    = document.createElement('div');
-            let length  = projects.length;
+        project.addEventListener('click', (event) => {
+            let node = document.createElement('div');
+            let length = projects.length;
             let INDEX = index;
 
             node.className = 'gallery-zoom';
@@ -243,7 +243,7 @@ function zoomProject() {
                     <span class="lnr lnr-cross-circle"></span>
                     <figure>
                         <img src="./img/gallery/${projects[index].img}" alt="Project" data-side="right">
-                        <figcaption>${index+1} of ${length}</figcaption>
+                        <figcaption>${index + 1} of ${length}</figcaption>
                     </figure>
                 </div>
                 <span class="lnr lnr-arrow-right-circle" data-side="right"></span>
@@ -258,8 +258,8 @@ function zoomProject() {
                     document.querySelector('.gallery-zoom').remove();
                 });
 
-                document.addEventListener('keydown', ( event ) => {
-                    if( event.key === "Escape") {
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === "Escape") {
                         if (document.querySelector('.gallery-zoom')) {
                             document.querySelector('.gallery-zoom').remove();
                         }
@@ -273,9 +273,9 @@ function zoomProject() {
 
             document.querySelectorAll('.lnr-arrow-right-circle, .lnr-arrow-left-circle, figure img').forEach(item => {
                 item.addEventListener('click', (event) => {
-                    if (item.dataset.side === 'right' ) {
+                    if (item.dataset.side === 'right') {
 
-                        if (INDEX === length-1) {
+                        if (INDEX === length - 1) {
                             INDEX = -1;
                         }
                         INDEX++;
@@ -283,9 +283,9 @@ function zoomProject() {
                         let photo = `./img/gallery/${projects[INDEX].img}`;
 
                         document.querySelector('figure img').setAttribute('src', photo);
-                        document.querySelector('figcaption').innerHTML = `${INDEX+1} of ${length}`;
+                        document.querySelector('figcaption').innerHTML = `${INDEX + 1} of ${length}`;
                     }
-                    if( item.dataset.side === 'left' ) {
+                    if (item.dataset.side === 'left') {
                         if (INDEX === 0) {
                             INDEX = length;
                         }
@@ -294,7 +294,7 @@ function zoomProject() {
                         let photo = `./img/gallery/${projects[INDEX].img}`;
 
                         document.querySelector('figure img').setAttribute('src', photo);
-                        document.querySelector('figcaption').innerHTML = `${INDEX+1} of ${length}`;
+                        document.querySelector('figcaption').innerHTML = `${INDEX + 1} of ${length}`;
                     }
                 });
             });
@@ -306,13 +306,13 @@ function renderFeedback(data) {
     // clone feedbacks [1, 2, 3, 4]
     // add 1 in front
     // add 1 in back
-    data = [  data[data.length-1], ...data, data[0] ];
+    data = [data[data.length - 1], ...data, data[0]];
 
     // first original feedback element
     let firstOriginalFeedback = 1;
 
     let HTML = '';
-    for (let i = 0; i < data.length; i++){
+    for (let i = 0; i < data.length; i++) {
         let feed = data[i];
 
         HTML += `<div class="col-6 flex feed"
@@ -358,19 +358,19 @@ function changeFeed() {
             if (direction === 'left') {
                 // directionIndex = 1;
                 currentFeedbackIndex--;
-                if (currentFeedbackIndex === 0){
+                if (currentFeedbackIndex === 0) {
                     currentFeedbackIndex = length - 2;
                 }
             }
             if (direction === 'right') {
                 // directionIndex = -1;
                 currentFeedbackIndex++;
-                if (currentFeedbackIndex === length - 1){
+                if (currentFeedbackIndex === length - 1) {
                     currentFeedbackIndex = 1;
                 }
             }
 
-            list.style.marginLeft = -currentFeedbackIndex * 50 +'%';
+            list.style.marginLeft = -currentFeedbackIndex * 50 + '%';
 
             // let step = 0;
             // const timer = setInterval(() => {
@@ -389,27 +389,27 @@ function changeFeed() {
 function renderPlans(data) {
     let HTML = '';
 
-    for (let i = 0; i < data.length; i++){
+    for (let i = 0; i < data.length; i++) {
         let plan = data[i];
 
         let options = '';
-        for(let j = 0; j < plan.options.length; j++){
-            options += `<p>${plan.options[j]}</p>`;
-        }
+        for (let j = 0; j < plan.options.length; j++) options += `<p>${plan.options[j]}</p>`;
 
-        HTML += `<div class="col-3">
-                    <h3>${plan.num}</h3>
-                    <h4>${plan.name}</h4>
-                    <p>${plan.dedicated}</p>
-                    ${options}
-                    <h6>${plan.cost}</h6>
-                    <a class="text-uppercase" href="#">${plan.button}</a>
-                </div>`;
+        HTML += `
+            <div class="col-3">
+                <h3>${plan.num}</h3>
+                <h4>${plan.name}</h4>
+                <p>${plan.dedicated}</p>
+                ${options}
+                <h6>${plan.cost}</h6>
+                <a class="text-uppercase" href="#">${plan.button}</a>
+            </div>
+        `;
     }
     return document.querySelector('.plans .row.flex').innerHTML = HTML;
 }
 
-function renderBlog( data ) {
+function renderBlog(data) {
     let HTML = '';
 
     for (let i = 0; i < data.length; i++) {
@@ -452,122 +452,86 @@ function renderBlog( data ) {
     return document.querySelector('.posts .row.flex').innerHTML = HTML;
 }
 
-function countInRow(params) {
-    if (window.matchMedia("(min-width: 1200px)").matches)   showInRow = 5;
-    if (window.matchMedia("(max-width: 992px)").matches)    showInRow = 4;
-    if (window.matchMedia("(max-width: 768px)").matches)    showInRow = 3;
-    if (window.matchMedia("(max-width: 576px)").matches)    showInRow = 2;
+function renderBrands() {
+    clearInterval(timer);
+    let HTML = '', BRANDS = '';
+    updateBrandsCarouselData();
+
+    data.forEach(item => BRANDS += `<div class = "col" style="flex-basis: ${itemWidth}px;"><a href="#"><img src="./img/brands/${item.img}" alt="Brand logo"></a></div>`);
+    HTML = `<div class="row flex" style="width: ${data.length * itemWidth}px; margin-left: ${-firstItemIndex * itemWidth}px">${BRANDS}</div>`;
+
+    target.innerHTML = HTML;
+    timer = setInterval(move, delay);
 }
 
-function renderBrands() {
-    BRANDS  = '';
-    HTML    = '';
-
-    countInRow();
-    window.addEventListener('resize', renderBrands);
-
-    let brandsCount = brands.length;
-        showInRow = (showInRow > brandsCount) ? brandsCount : showInRow;
-        showWidth = 100 / showInRow;
-        position = showInRow + 1;
-    let data        = [
-        ...brands.slice(brands.length - showInRow),
+function updateBrandsCarouselData() {
+    targetWidth = parseInt(getComputedStyle(target).width);
+    maxElements = Math.floor(targetWidth / minItemWidth);
+    itemWidth = targetWidth / maxElements;
+    minus = itemWidth / steps;
+    data = [
+        ...brands.slice(brands.length - maxElements),
         ...brands,
-        ...brands.slice(0, showInRow),
+        ...brands.slice(0, maxElements),
     ];
-        count       = data.length;
-    let colWidth    = 100 / count;
-    let middle      = Math.round(data.length / 2)-showInRow;
-    let showMiddle  = middle - showInRow * showWidth;
-    let rowWidth    = count / showInRow * 100;
+}
 
-    data.forEach( ( item, index ) => {
-        BRANDS += `
-            <div class="col" data-index="${index}" style="flex-basis: ${colWidth}%">
-                <a href="${item.link}"><img src="./img/brands/${item.img}" alt="Brand logo"></a>
-            </div>
-        `;
-    });
-
-    HTML = `
-        <div class="row flex" style="width: ${rowWidth}%;margin-left: ${showMiddle}%">
-            ${BRANDS}
-        </div>
-    `;
-
-    return document.querySelector('.brands > .container').innerHTML = HTML;
+function move() {
+    if (wait) {
+        if (++s > delayMultipy) {
+            clearInterval(timer);
+            wait = false;
+            timer = setInterval(move, time / steps);
+        }
+    } else {
+        if (steps >= ++i) document.querySelector('.brands .row').style.marginLeft = `calc( ${-firstItemIndex * itemWidth}px - ${minus * i}px )`;
+        else {
+            clearInterval(timer);
+            s = 0, i = 0, wait = true;
+            timer = setInterval(move, delay);
+            if (++firstItemIndex === data.length - maxElements) firstItemIndex = maxElements;
+        }
+    }
 }
 
 /* not working. coding in progress */
-function dragBrands() {
-    let row = document.querySelector('.brands > .container > .row');
-    // row.addEventListener('drag', () => {
-    //     console.log('mousedown');
-    //     row.addEventListener('mouseover', dragBrands, true);
-    // });
+// function dragBrands() {
+//     let row = document.querySelector('.brands > .container > .row');
+//     row.addEventListener('drag', () => {
+//         console.log('mousedown');
+//         row.addEventListener('mouseover', dragBrands, true);
+//     });
 
 
-    // row.addEventListener('mouseup', () => {
-    //     console.log('mouseUP');
-    //     row.removeEventListener('mouseover', dragBrands, true);
-    // });
+//     row.addEventListener('mouseup', () => {
+//         console.log('mouseUP');
+//         row.removeEventListener('mouseover', dragBrands, true);
+//     });
 
-    // console.log(event.clientX);
-    // // document.querySelector('.brands img').draggable = false;
-    // if (event.offsetX <= xxx) {
-    //     // console.log('draging to right' + xxx);
-    //     // row.style.marginLeft = (ml + (1)) + '%';
-    // }
-    // if (event.offsetX >= xxx) {
-    //     // console.log('draggin to left' + xxx);
-    //     // let ml = parseInt(row.style.marginLeft);
-    //     // row.style.marginLeft = (ml + (-1)) + '%';
-    // }
+//     console.log(event.clientX);
+//     // document.querySelector('.brands img').draggable = false;
+//     if (event.offsetX <= xxx) {
+//         // console.log('draging to right' + xxx);
+//         // row.style.marginLeft = (ml + (1)) + '%';
+//     }
+//     if (event.offsetX >= xxx) {
+//         // console.log('draggin to left' + xxx);
+//         // let ml = parseInt(row.style.marginLeft);
+//         // row.style.marginLeft = (ml + (-1)) + '%';
+//     }
 
-    /*if (typeof lastX !== 'undefined') {
-        var diff = lastX - event.clientX;
-        let ml = parseFloat(row.style.marginLeft);
+//     /*if (typeof lastX !== 'undefined') {
+//         var diff = lastX - event.clientX;
+//         let ml = parseFloat(row.style.marginLeft);
 
-        if (diff > 0) {
-            row.style.marginLeft = ml - diff/11 + '%';
-        }
-        if (diff < 0) {
-            row.style.marginLeft = ml - diff/11 + '%';
-        }
+//         if (diff > 0) {
+//             row.style.marginLeft = ml - diff/11 + '%';
+//         }
+//         if (diff < 0) {
+//             row.style.marginLeft = ml - diff/11 + '%';
+//         }
 
-    } else console.log('undifineeeeeeed');*/
+//     } else console.log('undifineeeeeeed');*/
 
-    lastX = event.clientX;
-}
-
-function brandsFunctionality() {
-    setTimeout(function moveBrand() {
-        timer = setInterval(moveBrands, time / step);
-
-        setTimeout(() => {
-            clearInterval(timer);
-            setTimeout(moveBrand, setAfter);
-        }, time);
-    }, setAfter);
-}
-
-function moveBrands() {
-    let row = document.querySelector('.brands > .container > .row');
-    let ml = parseFloat(row.style.marginLeft);
-
-    if (position > count - showInRow) {
-        row.style.marginLeft = 0 + '%';
-        position = 0;
-        i = step;
-    }
-
-    if (i < step) {
-        row.style.marginLeft = ml - (showWidth / step) + '%';
-        i++;
-    } else {
-        position++;
-        i = 0;
-        clearInterval(timer);
-        // row.style.marginLeft = Math.round(parseFloat(row.style.marginLeft).toFixed(3))+'%';
-    }
-}
+//     lastX = event.clientX;
+// }
