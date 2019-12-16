@@ -1,21 +1,24 @@
-function renderServices(data) {
+function htmlTemplate(target, data) {
     let HTML = '';
+    const originalTemplate = document.querySelector(target + ' > script').innerHTML;
 
     for (let i = 0; i < data.length; i++) {
-        let service = data[i];
+        const service = data[i];
+        const keywords = Object.keys(service);
 
-        HTML += `
-            <div class="col-4">
-                <div class="service">
-                    <i class="lnr lnr-${service.icon}"></i>
-                    <h3>${service.category}</h3>
-                    <p>${service.text}</p>
-                </div>
-            </div>
-        `;
+        let template = originalTemplate;
+
+        for (let k = 0; k < keywords.length; k++) {
+            const pattern = `{{${keywords[k]}}}`;
+            while (template.indexOf(pattern) >= 0) {
+                template = template.replace(pattern, service[keywords[k]]);
+            }
+        }
+
+        HTML += template;
     }
 
-    return document.querySelector('.services .row.flex').innerHTML = HTML;
+    return document.querySelector(target).innerHTML = HTML;
 }
 
 function renderNavigation(target) {
@@ -119,23 +122,6 @@ function navigationFunctionality() {
         });
 
     });
-}
-
-function renderFacts(data) {
-    let HTML = '';
-
-    data.forEach(fact => {
-        if (typeof (fact.number) === 'string' || fact.title === undefined || fact.title.length === 0) {
-            return;
-        }
-
-        HTML += `<div class="col-3">
-                    <h4 class="counter">${fact.number}</h4>
-                    <p>${fact.title}</p>
-                </div>`;
-    });
-
-    return document.getElementById('facts').innerHTML = HTML;
 }
 
 function counterUp(data) {
@@ -409,48 +395,48 @@ function renderPlans(data) {
     return document.querySelector('.plans .row.flex').innerHTML = HTML;
 }
 
-function renderBlog(data) {
-    let HTML = '';
+// function renderBlog(data) {
+//     let HTML = '';
 
-    for (let i = 0; i < data.length; i++) {
-        let post = data[i];
+//     for (let i = 0; i < data.length; i++) {
+//         let post = data[i];
 
-        HTML += `
-            <div class="col-4">
-                <div class="row photo">
-                    <img src="./img/blog/${post.imgPhoto}" alt="Blog post photo">
-                </div>
-                <div class="row flex post-info">
-                    <div class="col flex row-center person">
-                        <img src="./img/user/${post.imgUser}" alt="User photo">
-                        <a href="#">${post.user}</a>
-                    </div>
-                    <div class="col flex row-center meta">
-                        <p>
-                            <time datetime="${post.time}">${post.date}</time>
-                        </p>
-                        <span>
-                            <i class="lnr lnr-heart"></i>
-                            ${post.likes}
-                        </span>
-                        <span>
-                            <i class="lnr lnr-bubble"></i>
-                            ${post.comments}
-                        </span>
-                    </div>
-                </div>
-                <div class="row post">
-                    <a href="${post.link}">
-                        <h4>${post.title}</h4>
-                    </a>
-                    <p>${post.text}</p>
-                </div>
-            </div>
-        `;
-    }
+//         HTML += `
+//             <div class="col-4">
+//                 <div class="row photo">
+//                     <img src="./img/blog/${post.imgPhoto}" alt="Blog post photo">
+//                 </div>
+//                 <div class="row flex post-info">
+//                     <div class="col flex row-center person">
+//                         <img src="./img/user/${post.imgUser}" alt="User photo">
+//                         <a href="#">${post.user}</a>
+//                     </div>
+//                     <div class="col flex row-center meta">
+//                         <p>
+//                             <time datetime="${post.time}">${post.date}</time>
+//                         </p>
+//                         <span>
+//                             <i class="lnr lnr-heart"></i>
+//                             ${post.likes}
+//                         </span>
+//                         <span>
+//                             <i class="lnr lnr-bubble"></i>
+//                             ${post.comments}
+//                         </span>
+//                     </div>
+//                 </div>
+//                 <div class="row post">
+//                     <a href="${post.link}">
+//                         <h4>${post.title}</h4>
+//                     </a>
+//                     <p>${post.text}</p>
+//                 </div>
+//             </div>
+//         `;
+//     }
 
-    return document.querySelector('.posts .row.flex').innerHTML = HTML;
-}
+//     return document.querySelector('.posts .row.flex').innerHTML = HTML;
+// }
 
 function renderBrands() {
     clearInterval(timer);

@@ -2,21 +2,18 @@ renderNavigation('header nav');
 renderNavigation('.mobile-nav');
 navigationFunctionality();
 
-renderServices(services);
-
-renderFacts(facts);
-counterUp(facts);
-
 // renderFeedback(feedbacks);
 // changeFeed();
 
 renderPlans(plans);
-
 renderProjects(projects);
 filterGallery();
 zoomProject();
 
-renderBlog(blog_posts);
-
 renderBrands();
 window.addEventListener('resize', renderBrands);
+
+htmlTemplate('.services > .row.flex', services);
+htmlTemplate('.facts > .row.flex', facts);
+counterUp(facts);
+htmlTemplate('.posts .row.flex', blog_posts);
