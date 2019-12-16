@@ -1,0 +1,31 @@
+::selection
+    background-color: $primary-color
+    color: $white-color
+
+body
+    background-color: $white-color
+    color: $text-color
+    font-size: 16px
+
+img
+    max-width: 100%
+    height: auto
+
+section
+    padding: $padding 0
+
+    &:nth-of-type(2), &.plans
+        padding-bottom: 0
+
+    &:first-of-type
+        padding-top: 2em
+        @media(min-width: $md)
+            padding-bottom: 0
+
+    .col
+        p
+            margin: 0 auto 3em auto
+            @media (min-width: $md)
+                max-width: 95%
+            @media (min-width: $lg)
+                max-width: 65%

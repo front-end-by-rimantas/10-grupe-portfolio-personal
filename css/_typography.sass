@@ -1,0 +1,45 @@
+h1, h2, h3, h4, h5, h6
+    color: $dark-color
+    font-weight: 600
+    margin-bottom: .5em
+    @extend .text-capitalize
+
+h1
+    @include size(2.2)
+    margin-bottom: .3em
+    @media (min-width: $xl)
+        @include size(3.7)
+
+h2
+    @include size(1.8)
+    @media (min-width: $xl)
+        @include size(2.7)
+
+h3
+    @include size(1.4)
+    @media (min-width: $xl)
+        @include size(2.1)
+
+h4
+    @include size(1.2)
+    @media (min-width: $xl)
+        @include size(1.7)
+
+h5
+    @include size(1)
+    @media (min-width: $xl)
+        @include size(1.1)
+
+h6
+    @include size(0.9)
+    font-weight: 400
+    @media (min-width: $xl)
+        @include size(0.9)
+
+p
+    color: $text-color
+    @include size(0.85)
+    font-weight: 300
+    margin-bottom: 2em
+    @media (min-width: $xl)
+        @include size(0.85)

@@ -1,0 +1,335 @@
+header
+    background-color: $white-color
+    position: sticky
+    top: 0
+    left: 0
+    right: 0
+    z-index: 2
+    transition: box-shadow .5s
+    padding: 1em
+    @media (min-width: $lg)
+        padding: 0
+
+    &.shadow
+        box-shadow: -21.213px 21.213px 30px 0 rgba(158,158,158,.3)
+
+    .row
+        @extend .text-left
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+        .col
+            flex-basis: auto
+            padding: 0
+            
+        nav
+            display: none
+            .childs
+                position: absolute
+            @media (min-width: $lg)
+                display: flex
+            .dropdown
+                position: relative
+                .childs
+                    background: $white-color
+                    box-shadow: 0 0 30px rgba(127,137,161,.25);
+                    display: none
+                    padding: .7em 0
+                    left: -200%
+                    right: 0
+                    top: 100%
+                    animation: show .5s ease-out
+                    animation-iteration-count: 1
+                    a
+                        @extend .text-capitalize
+                        padding: .3em 1.5em
+                        &.has-childs
+                            &::after
+                                transform: rotate(-90deg);
+                    .childs
+                        transition:all .3s ease 0s
+                        margin: 0
+                        right: 100%
+                        left: -100%
+                        top: 0
+            a
+                color: $dark-color
+                @include size(.8)
+                font-weight: 500
+                text-decoration: none
+                text-transform: uppercase
+                width: 100%
+                padding: 1.7em 1em
+                display: block
+                &.active
+                    color: $primary-color
+                &:hover
+                    color: $primary-color
+
+                &.has-childs
+                    padding-right: 2em
+                    width: 100%
+                    &::after
+                        content: "\f107"
+                        position: absolute
+                        font-family: FontAwesome
+                        @include size(1em)
+                        font-weight: 400
+                        right: 10px
+
+// mobile nav
+.lnr-menu, .lnr-cross
+    z-index: 9
+    position: fixed
+    top: 15px
+    left: 90%
+    @media (max-width: 300px)
+        left: 80%
+    font-weight: 900
+    cursor: pointer
+    padding: .5em
+    @media (min-width: $lg)
+        display: none
+
+.mobile-overlay, .mobile-nav
+    z-index: 2
+    @media (min-width: $lg)
+        display: none
+
+.mobile-overlay
+    background-color: rgba(0, 0, 0, .7)
+    position: fixed
+    top: 0
+    bottom: 0
+    right: 0
+    opacity: 0
+    transition: opacity 1s
+    cursor: zoom-out
+
+    &.show
+        opacity: 1
+        left: 0
+
+.mobile-nav
+    background-color: rgba(0, 0, 0, .8)
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    padding-top: .7em
+    text-align: left
+    width: 240px
+    margin-left: -240px
+    transition: margin 1s
+    display: flex
+    flex-direction: column
+    &.show
+        margin: 0
+    a
+        color: $white-color
+        padding: .5em 0 .5em 1em
+        @include size(1)
+        @extend .text-uppercase
+        text-decoration: none
+        &.active
+            color: $primary-color
+            &::after
+                transform: rotate(90deg);
+        &:hover
+            color: $primary-color
+        &.has-childs
+            width: 100%
+            &::after
+                transition: all .3s
+                content: "\f107"
+                position: absolute
+                font-family: FontAwesome
+                @include size(1em)
+                font-weight: 400
+                right: 0
+
+    .dropdown
+        display: flex
+        position: relative
+        flex-direction: column
+        transition: all 2s ease;
+        *:not(.has-childs)
+            display: none
+        .visible
+            margin-left: 1em
+        a
+            &.has-childs
+                width: 100%
+                display: block;
+                &::after
+                    content: "\f105"
+                    position: absolute
+                    right: 1em
+                    top: .4em
+                    font-family: FontAwesome
+                    font-weight: 400
+                    padding-right: 0
+    //     @media (min-width: $sm) and (max-width: $md)
+    //         nav
+    //             display: none
+
+    //     @media (min-width: $md)
+    //         .col
+    //             padding: 0
+    //         .col:first-child
+    //             flex-basis: 30%
+    //         .col:nth-child(2)
+    //             flex-basis: 70%
+    //         nav
+    //             display: flex
+    //             justify-content: flex-end
+    //             a
+    //                 color: $dark-color
+    //                 @include size(0.8)
+    //                 font-weight: 500
+    //                 text-decoration: none
+    //                 margin-right: 1.6em
+    //                 text-transform: uppercase
+
+    //         .childs
+    //             display: none
+
+    // &.shadow
+    //     box-shadow: -21.213px 21.213px 30px 0 rgba(158,158,158,.3)
+    //     transition: box-shadow .5s
+
+
+
+    // .mobile-nav a.has-childs::after,
+    // .mobile-nav > ul > li.has-dropdown > ul > li > a.has-childs::after
+    //     content: "\f107"
+    //     position: absolute
+    //     font-family: FontAwesome
+    //     font-weight: 400
+    //     font-size: 1rem
+    //     right: 0
+    
+    // .mobile-nav > ul > li.has-dropdown > ul > li > a.has-childs::after
+    //     padding-right: 1rem
+
+
+// nav.mobile-nav li li
+//     padding-left: 2rem
+
+// nav.mobile-nav > ul > li.has-dropdown ul
+//     background-color: unset
+//     position: unset
+//     box-shadow: none
+//     padding: 0
+
+// .mobile-nav.visible
+//     animation: slide .5s ease-out
+//     animation-iteration-count: 1
+
+// nav > ul.flex ul
+//     animation: show .7s ease-out
+//     animation-iteration-count: 1
+
+// nav.mobile-nav ul.visible li
+//     animation: appear .3s linear
+//     animation-iteration-count: 1
+
+// @media (max-width: 992px)
+//     nav > ul > li a
+//         margin-right: 1.2rem
+
+@keyframes show
+    0%
+        opacity: 0
+
+    50%
+        opacity: 0
+
+    90%
+        opacity: .9
+
+    100%
+        opacity: 1
+
+// @keyframes slide
+//     0%
+//         left: -300px
+
+//     100%
+//         left: 0
+
+// @keyframes appear
+//     from
+//         opacity: 0
+//         padding: 0
+
+//     to
+//         opacity: 1
+
+
+///////////
+//     .row
+//         @extend .text-left
+
+//         .col
+//             flex-basis: 70%
+//             &:first-child
+//                 flex-basis: 30%
+
+//             nav
+//                 &.flex
+//                     // align-items: center
+
+//                 .childs
+//                     display: none
+
+//                 a
+//                     color: $dark-color
+//                     @include size(0.8)
+//                     font-weight: 500
+//                     text-decoration: none
+//                     @extend .text-uppercase
+//                     margin-right: 1.6rem
+
+// .mobile-overlay, nav.mobile-nav
+//     display: none
+
+/////////////// nav .lnr
+//     color: $dark-color;
+//     size(5)
+//     font-weight: 900;
+//     cursor: pointer;
+
+// nav ul
+//     list-style: none
+
+// nav a:hover, a.active
+//     color: $primary-color
+
+// li.has-dropdown
+//     position: relative
+
+// li.has-dropdown ul
+//     background-color: $white-color
+//     padding: 1rem 1.5rem
+//     position: absolute
+//     top: 51px
+//     left: -8rem
+//     right: 0
+//     flex-direction: column
+//     box-shadow: 0 0 30px rgba(127,137,161,.25)
+//     display: none
+
+// ul.flex > li.has-dropdown > ul li.has-dropdown > ul
+//     position: absolute
+//     top: 0
+//     left: -1.5rem
+//     transform: translateX(-100%)
+//     box-shadow: 0 0 30px rgba(127,137,161,.25)
+
+// ul > li.has-dropdown > ul > li.has-dropdown > a
+//     position: unset
+
+// li.has-dropdown ul > li > a
+//     text-transform: capitalize

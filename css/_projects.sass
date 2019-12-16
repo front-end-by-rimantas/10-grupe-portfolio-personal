@@ -1,0 +1,138 @@
+.projects
+    h4
+        @include size(1.2)
+        font-weight: 600
+        margin: 1em 0 0 0
+
+    .project-category
+        margin-bottom: 1.5em
+
+    .project-photo
+        position: relative
+        display: inline-block;
+
+        .overlay
+            opacity: 0
+            cursor: pointer
+
+    .row
+        &.flex
+            justify-content: start
+            @media (max-width: $sm) and (min-width: $sm)
+                align-items: center
+            @media (min-width: $md)
+                justify-content: flex-start
+        .col-4
+            display: none
+            animation: opa 2s ease
+
+            .project-photo
+                &:hover
+                    .overlay
+                        background: url(../img/preview.png) no-repeat center, $gradient
+                        opacity: .8
+                        position: absolute
+                        top: 0
+                        left: 0
+                        bottom: 0
+                        right: 0
+                        transition: opacity .5s
+
+.project-categories
+    margin-bottom: 1.5em
+
+    @media(min-width: $sm)
+        .flex
+            flex-direction: row
+
+    .filter
+        color: $dark-color
+        @include size(0.8)
+        font-weight: 500
+        text-decoration: none
+        @extend .text-uppercase
+        padding: 0.5em 0
+        margin: 0 1.5em
+        position: relative
+        cursor: pointer
+
+        &::after
+            background: $dark-secondary
+            content: ''
+            height: 2px
+            width: 0
+            position: absolute
+            bottom: 0
+            left: 0
+            transition: width .2s ease-out
+
+        &:not(.active):hover::after
+            width: 40%
+
+        &.active
+            color: $primary-color
+
+.gallery-zoom
+    background-color: rgba(0, 0, 0, .7)
+    z-index: 9
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+
+    .gallery-close
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        z-index: 10
+        cursor: zoom-out
+
+    .lnr
+        color: $arrow-color
+        @include size(2)
+        cursor: pointer
+        position: fixed
+        top: 50%
+        left: 15px
+        z-index: 15
+
+        &.lnr-arrow-right-circle
+            left: unset
+            right: 15px
+
+        &.lnr-cross-circle
+            @include size(1.4)
+            position: absolute
+            left: unset
+            right: 0
+            top: unset
+
+        &:hover
+            color: $white-color
+
+    .showing
+        position: fixed
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        z-index: 11
+
+        figure
+            margin-top: 2em
+            cursor: pointer
+
+        figcaption
+            color: $arrow-color
+            @extend .text-right
+            @include size(0.8)
+            font-weight: 300
+            margin-top: 0.3em
+
+@keyframes opa
+    from
+        opacity: 0
+    to
+        opacity: 1
