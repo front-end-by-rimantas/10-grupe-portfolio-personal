@@ -16,4 +16,4 @@ Site published at https://front-end-by-rimantas.github.io/10-grupe-portfolio-per
 Design: [Personal template](https://colorlib.com/preview/theme/personal/)
 
 ### Authors
-[Artūras](https://github.com/keizah7), [Giedrius](https://github.com/GiedriusVir)
+[Artūras](https://github.com/keizah7) ![Followers](https://img.shields.io/github/followers/keizah7?style=social), [Giedrius](https://github.com/GiedriusVir)
