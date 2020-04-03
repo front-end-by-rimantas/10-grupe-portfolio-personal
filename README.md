@@ -9,7 +9,7 @@
 # Personal portfolio
 ### 10 grupe - portfolio project
 
-This project is for educational porpuses only. Pull request are welcome, but priority for my real-life students! Thank you for your cooperation!
+This project is for educational porpuses only. Pull request are welcome! Thank you for your cooperation!
 Site published at https://front-end-by-rimantas.github.io/10-grupe-portfolio-personal/index.html
 
 Design: [Personal](https://colorlib.com/preview/theme/personal/)
