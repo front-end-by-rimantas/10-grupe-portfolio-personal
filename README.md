@@ -16,4 +16,5 @@ Design: [Personal](https://colorlib.com/preview/theme/personal/)
 
 ### Authors
 [Artūras](https://github.com/keizah7) ![Followers](https://img.shields.io/github/followers/keizah7?style=social)
+
 [Giedrius](https://github.com/GiedriusVir) ![Followers](https://img.shields.io/github/followers/GiedriusVir?style=social)
