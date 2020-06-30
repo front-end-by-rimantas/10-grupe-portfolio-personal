@@ -12,7 +12,7 @@
 This project is for educational porpuses only. Pull request are welcome! Thank you for your cooperation!
 Site published at https://front-end-by-rimantas.github.io/10-grupe-portfolio-personal/index.html
 
-Design: [Personal](https://colorlib.com/preview/theme/personal/)
+Template: [Personal](https://colorlib.com/preview/theme/personal/)
 
 ### Authors
 [Artūras](https://github.com/keizah7) ![Followers](https://img.shields.io/github/followers/keizah7?style=social)
