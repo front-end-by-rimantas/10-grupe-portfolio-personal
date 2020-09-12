@@ -7,7 +7,7 @@
 ![Contributors](https://img.shields.io/github/contributors/front-end-by-rimantas/10-grupe-portfolio-personal)
 
 # Personal portfolio
-### 10 grupe - portfolio project
+### BIT 10 grupė - portfolio project
 
 This project is for educational porpuses only. Pull request are welcome! Thank you for your cooperation!
 Site published at https://front-end-by-rimantas.github.io/10-grupe-portfolio-personal/index.html
