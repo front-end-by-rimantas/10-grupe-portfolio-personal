@@ -1,5 +1,5 @@
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
-[![Discord](https://img.shields.io/discord/620935790867906561?label=chat)](https://discordapp.com/channels/620935790867906561)
+[![Discord](https://img.shields.io/discord/792168675171631114?label=chat)](https://discord.gg/xyCMv46Npq)
 ![HitCount](http://hits.dwyl.io/front-end-by-rimantas/10-grupe-portfolio-personal.svg)
 ![Forks](https://img.shields.io/github/forks/front-end-by-rimantas/10-grupe-portfolio-personal?style=social)
 ![Stars](https://img.shields.io/github/stars/front-end-by-rimantas/10-grupe-portfolio-personal?style=social)
